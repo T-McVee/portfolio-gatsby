@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-// import Rellax from 'rellax';
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'; */
 
 export const HeaderLower = () => {
-  useEffect(() => {
-    // new Rellax('.rellax', {});
-  }, []);
-
   return (
-    <Wrapper className="rellax" data-rellax-speed="2">
+    <Wrapper className="rellax" data-rellax-speed="0.5">
       <div className="text">
         <h2>
           Web Dev{' '}

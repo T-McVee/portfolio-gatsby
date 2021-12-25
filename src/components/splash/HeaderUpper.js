@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-// import Rellax
 import { ButtonCta } from '../ButtonCta';
 
 const HeaderUpper = ({ handleOpenModal }) => {
-  useEffect(() => {
-    // new Rellax('.rellax', {});
-  }, []);
-
   return (
-    <Wrapper className="rellax" data-rellax-speed="2">
+    <Wrapper>
       <h1>
         Tim <br /> <span className="bold">McVinish</span>
       </h1>

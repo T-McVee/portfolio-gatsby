@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import Rellax from 'rellax';
 import Logo from './Logo';
 import HeaderLower from './HeaderLower';
 import HeaderUpper from './HeaderUpper';
@@ -9,19 +10,23 @@ import { StaticImage } from 'gatsby-plugin-image';
 const Splash = (props) => {
   const { handleOpenModal } = props;
 
+  useEffect(() => {
+    new Rellax('.rellax');
+  }, []);
+
   return (
     <>
       <Section>
+        <BgFront />
         <Logo />
         <header>
           <HeaderUpper handleOpenModal={handleOpenModal} />
           <HeaderLower />
         </header>
         <div className="mask-gradient" />
-        <BgFront />
+
         <StaticImage
           src="../../images/bg-splash-back.jpg"
-          placeholder="blurred"
           layout="fullWidth"
           alt="logo"
           loading="eager"

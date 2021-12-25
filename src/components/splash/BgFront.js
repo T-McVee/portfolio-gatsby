@@ -1,28 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const BgFront = () => {
-  useEffect(() => {
-    // new Rellax('.rellax');
-  }, []);
-
   return (
-    <Wrapper>
+    <Wrapper className="rellax" data-rellax-speed="2">
       <StaticImage
         src="../../images/bg-splash-front.png"
-        placeholder="blurred"
         layout="fullWidth"
         alt="Standing on top of a mountain"
         loading="eager"
-        className="hero-front rellax"
-        data-rellax-speed="3"
+        className="hero-front"
       />
-      <div
-        className="mask-white rellax"
-        data-rellax-speed="3"
-        data-testid="white"
-      />
+      <div className="mask-white" data-testid="white" />
     </Wrapper>
   );
 };
