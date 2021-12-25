@@ -3,18 +3,32 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import HeaderLower from './HeaderLower';
 import HeaderUpper from './HeaderUpper';
+import BgFront from './BgFront';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Splash = (props) => {
   const { handleOpenModal } = props;
 
   return (
-    <Section>
-      <Logo />
-      <header>
-        <HeaderUpper handleOpenModal={handleOpenModal} />
-        <HeaderLower />
-      </header>
-    </Section>
+    <>
+      <Section>
+        <Logo />
+        <header>
+          <HeaderUpper handleOpenModal={handleOpenModal} />
+          <HeaderLower />
+        </header>
+        <div className="mask-gradient" />
+        <BgFront />
+        <StaticImage
+          src="../../images/bg-splash-back.jpg"
+          placeholder="blurred"
+          layout="fullWidth"
+          alt="logo"
+          loading="eager"
+          className="hero-back"
+        />
+      </Section>
+    </>
   );
 };
 
@@ -25,20 +39,35 @@ const Section = styled.section`
   width: 100%;
   height: 100vh;
   padding: 5.5rem;
-  // [BG IMG REF]
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
-    padding: 2rem;
-  }
 
   header {
     width: 100%;
     height: calc(100% - 80px);
   }
-`;
 
-// BG img ref
-/* background-image: url(${bgImageBack}); */
+  .mask-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
+      rgb(255, 250, 233, 0.35),
+      rgb(255, 255, 255, 0.78)
+    );
+    opacity: 0.83;
+  }
+
+  .hero-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+    padding: 2rem;
+  }
+`;
