@@ -1,16 +1,30 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "portfolio",
+    siteUrl: 'https://www.yourdomain.tld',
+    title: 'portfolio',
   },
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: "40gC4wGv9xVyA_taCKCP3rKaVkhT7UevAlfjKhwQWiE",
-        spaceId: "rki59qrc3s7p",
+        accessToken: process.env.CONTENTFUL_API_KEY,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
-    "gatsby-plugin-styled-components",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    'gatsby-plugin-styled-components',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 };
