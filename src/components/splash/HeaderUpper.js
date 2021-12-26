@@ -36,8 +36,4 @@ const Wrapper = styled.div`
       line-height: 3rem;
     }
   }
-
-  .bold {
-    font-weight: 600;
-  }
 `;

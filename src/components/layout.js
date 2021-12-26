@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: Helvetica, sans-serif;
   }
+
+  .bold {
+    font-weight: 600;
+  }
 `;
 
 const Layout = ({ children }) => {
