@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -33,5 +34,14 @@
     "react-modal": "^3.14.4",
     "rellax": "^1.12.1",
     "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.4.5",
+    "babel-preset-gatsby": "^2.4.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.5",
+    "react-test-renderer": "^17.0.2"
   }
 }
