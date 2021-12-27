@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
   .bold {
     font-weight: 600;
   }
+
+  .icon-footer {
+  font-size: 2rem;
+  margin: 0 1rem;
+  }
 `;
 
 const Layout = ({ children }) => {
