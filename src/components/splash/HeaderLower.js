@@ -46,12 +46,16 @@ export const HeaderLower = () => {
       </div>
       <div className="icons">
         <a href={gitHub.node.address} target="blank">
+          <span>Open Tim's GitHub</span>
           <FontAwesomeIcon icon={faGithub} className="icon-footer" />
         </a>
         <a href={linkedin.node.address} target="blank">
+          <span>Open Tim's LinkedIn</span>
           <FontAwesomeIcon icon={faLinkedin} className="icon-footer" />
         </a>
+        {/* Change this to open the modal? */}
         <a href={email.node.address} target="blank">
+          <span>Email Tim</span>
           <FontAwesomeIcon icon={faEnvelope} className="icon-footer" />
         </a>
       </div>
@@ -105,6 +109,14 @@ const Wrapper = styled.div`
     width: 3rem;
     height: 67%;
     justify-content: space-around;
+
+    span {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      clip: rect(1px, 1px, 1px, 1px);
+      overflow: hidden;
+    }
 
     a {
       text-decoration: none;
