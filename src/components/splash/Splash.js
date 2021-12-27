@@ -15,31 +15,28 @@ const Splash = (props) => {
   }, []);
 
   return (
-    <>
-      <Section>
-        <BgFront />
-        <Logo />
-        <header>
-          <HeaderUpper handleOpenModal={handleOpenModal} />
-          <HeaderLower />
-        </header>
-        <div className="mask-gradient" />
-
-        <StaticImage
-          src="../../images/bg-splash-back.jpg"
-          layout="fullWidth"
-          alt="logo"
-          loading="eager"
-          className="hero-back"
-        />
-      </Section>
-    </>
+    <Wrapper>
+      <BgFront />
+      <Logo />
+      <header>
+        <HeaderUpper handleOpenModal={handleOpenModal} />
+        <HeaderLower />
+      </header>
+      <div className="mask-gradient" />
+      <StaticImage
+        src="../../images/bg-splash-back.jpg"
+        layout="fullWidth"
+        alt="logo"
+        loading="eager"
+        className="hero-back"
+      />
+    </Wrapper>
   );
 };
 
 export default Splash;
 
-const Section = styled.section`
+const Wrapper = styled.section`
   position: relative;
   width: 100%;
   height: 100vh;

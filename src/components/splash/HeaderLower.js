@@ -1,10 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useStaticQuery, graphql } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'; */
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+export const query = graphql`
+  {
+    data: allContentfulContactMethod(
+      limit: 3
+      sort: { fields: type, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          address
+          type
+        }
+      }
+    }
+  }
+`;
 
 export const HeaderLower = () => {
+  const {
+    data: { edges },
+  } = useStaticQuery(query);
+
+  const [email, gitHub, linkedin] = edges;
+
   return (
     <Wrapper className="rellax" data-rellax-speed="0.5">
       <div className="text">
@@ -21,14 +45,14 @@ export const HeaderLower = () => {
         </p>
       </div>
       <div className="icons">
-        <a href="https://github.com/T-McVee" target="blank">
-          {/* <FontAwesomeIcon icon={faGithub} className="icon-footer" /> */}
+        <a href={gitHub.node.address} target="blank">
+          <FontAwesomeIcon icon={faGithub} className="icon-footer" />
         </a>
-        <a href="https://www.linkedin.com/in/t-mcvee/" target="blank">
-          {/* <FontAwesomeIcon icon={faLinkedin} className="icon-footer" /> */}
+        <a href={linkedin.node.address} target="blank">
+          <FontAwesomeIcon icon={faLinkedin} className="icon-footer" />
         </a>
-        <a href="mailto: iam@tmcvee.com" target="blank">
-          {/* <FontAwesomeIcon icon={faEnvelope} className="icon-footer" /> */}
+        <a href={email.node.address} target="blank">
+          <FontAwesomeIcon icon={faEnvelope} className="icon-footer" />
         </a>
       </div>
     </Wrapper>
