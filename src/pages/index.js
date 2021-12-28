@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Splash from '../components/splash/Splash';
 import Bio from '../components/bio/Bio';
+import Work from '../components/work/Work';
 import Modal from '../components/modal/Modal';
 import Layout from '../components/layout';
 
@@ -74,6 +75,7 @@ const IndexPage = () => {
           isSubmited={isSubmited}
           formInfo={formInfo}
         />
+        <Work />
       </div>
     </Layout>
   );
