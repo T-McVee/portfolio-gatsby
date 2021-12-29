@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import styled from 'styled-components';
 import Description from './Description';
 
@@ -7,7 +9,12 @@ const Project = ({ children, rightAlign }) => {
   const { title, subtitle, description, tags, linkLive, linkRepo, cover } =
     children;
 
-  // console.log(cover);
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+      easing: 'ease',
+    });
+  }, []);
 
   const image = getImage(cover);
   const links = [
