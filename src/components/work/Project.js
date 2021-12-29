@@ -7,6 +7,8 @@ const Project = ({ children, rightAlign }) => {
   const { title, subtitle, description, tags, linkLive, linkRepo, cover } =
     children;
 
+  // console.log(cover);
+
   const image = getImage(cover);
   const links = [
     { text: 'live', url: linkLive },
@@ -32,6 +34,7 @@ const Project = ({ children, rightAlign }) => {
           image={image}
           alt={title}
           onClick={openSite}
+          data-testid="cover-image"
         />
       )}
       <Description
@@ -48,6 +51,7 @@ const Project = ({ children, rightAlign }) => {
           image={image}
           alt={title}
           onClick={openSite}
+          data-testid="cover-image"
         />
       )}
     </Wrapper>

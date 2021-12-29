@@ -9,7 +9,7 @@ const Description = (props) => {
   return (
     <Wrapper rightAlign={rightAlign} data-testid="description">
       <h2>{title}</h2>
-      <p className="subtitle" rightAlign={rightAlign} data-testid="subtitle">
+      <p className="subtitle" data-testid="subtitle">
         {subtitle}
       </p>
       <p className="body" data-testid="body">

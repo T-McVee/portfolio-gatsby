@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Tag = ({ text, rightAlign }) => {
+  if (!text) return null;
   return (
     <Wrapper rightAlign={rightAlign} data-testid="tag">
       {text}
