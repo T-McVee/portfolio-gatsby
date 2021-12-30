@@ -2,20 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+// import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export const query = graphql`
   {
     data: allContentfulContactMethod(
       limit: 3
-      sort: { fields: type, order: ASC }
+      sort: { fields: order, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          address
-          type
+      nodes {
+        id
+        address
+        type
+        faIcon {
+          library
+          icon
         }
       }
     }
@@ -24,10 +26,8 @@ export const query = graphql`
 
 export const HeaderLower = () => {
   const {
-    data: { edges },
+    data: { nodes },
   } = useStaticQuery(query);
-
-  const [email, gitHub, linkedin] = edges;
 
   return (
     <Wrapper className="rellax" data-rellax-speed="0.5">
@@ -45,19 +45,15 @@ export const HeaderLower = () => {
         </p>
       </div>
       <div className="icons">
-        <a href={gitHub.node.address} target="blank">
-          <span>Open Tim's GitHub</span>
-          <FontAwesomeIcon icon={faGithub} className="icon-footer" />
-        </a>
-        <a href={linkedin.node.address} target="blank">
-          <span>Open Tim's LinkedIn</span>
-          <FontAwesomeIcon icon={faLinkedin} className="icon-footer" />
-        </a>
-        {/* Change this to open the modal? */}
-        <a href={email.node.address} target="blank">
-          <span>Email Tim</span>
-          <FontAwesomeIcon icon={faEnvelope} className="icon-footer" />
-        </a>
+        {nodes.map((node) => (
+          <a href={node.address} target="blank">
+            <span>Tim's {node.type}</span>
+            <FontAwesomeIcon
+              icon={[node.faIcon.library, node.faIcon.icon]}
+              className="icon-footer"
+            />
+          </a>
+        ))}
       </div>
     </Wrapper>
   );

@@ -4,6 +4,12 @@ import Bio from '../components/bio/Bio';
 import Work from '../components/work/Work';
 import Modal from '../components/modal/Modal';
 import Layout from '../components/layout';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import Skills from '../components/skills/Skills';
+
+library.add(fab, faEnvelope);
 
 const encode = (data) => {
   return Object.keys(data)
@@ -76,6 +82,7 @@ const IndexPage = () => {
           formInfo={formInfo}
         />
         <Work />
+        <Skills />
       </div>
     </Layout>
   );
