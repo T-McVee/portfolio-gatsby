@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-// import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export const query = graphql`
   {
@@ -46,7 +44,7 @@ export const HeaderLower = () => {
       </div>
       <div className="icons">
         {nodes.map((node) => (
-          <a href={node.address} target="blank">
+          <a href={node.address} target="blank" key={node.id}>
             <span>Tim's {node.type}</span>
             <FontAwesomeIcon
               icon={[node.faIcon.library, node.faIcon.icon]}
