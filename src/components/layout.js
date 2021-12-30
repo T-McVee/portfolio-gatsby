@@ -17,10 +17,30 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
+  .icon {
+  font-size: 1.75rem;
+}
+
   .icon-footer {
   font-size: 2rem;
   margin: 0 1rem;
   }
+
+.icon-skill {
+  font-size: 4rem;
+
+  @media screen and (max-width: $breakpointTablet) {
+    font-size: 3rem;
+  }
+}
+
+  .slider {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 `;
 
 const Layout = ({ children }) => {
