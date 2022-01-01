@@ -3,8 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import SkillsList from './SkillsList';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 export const query = graphql`
   {
     data: allContentfulSkill(sort: { fields: order, order: ASC }) {
@@ -24,18 +22,23 @@ export const query = graphql`
   }
 `;
 
+export const PureSkills = ({ data }) => {
+  if (!data) return null;
+  return (
+    <Wrapper data-testid="skills">
+      <h1>Skills</h1>
+      <SkillsList skills={data} />
+      <hr className="divide" />
+    </Wrapper>
+  );
+};
+
 const Skills = () => {
   const {
     data: { nodes },
   } = useStaticQuery(query);
 
-  return (
-    <Wrapper>
-      <h1>Skills</h1>
-      <SkillsList skills={nodes} />
-      <hr className="divide" />
-    </Wrapper>
-  );
+  return <PureSkills data={nodes} />;
 };
 
 export default Skills;
