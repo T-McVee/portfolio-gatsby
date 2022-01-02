@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import H1 from '../H1';
 import XpBlock from './XpBlock';
 
 const Bio = () => {
   return (
     <Wrapper>
-      <h1>Schooled in marketing, in love with technology</h1>
+      <H1>Schooled in marketing, in love with technology</H1>
       <p>
         Howdy, Based in British Columbia, Canada, I'm a Marketing Specialist
         turned Front-End Developer (Who may have taken a 7-year detour as a
@@ -29,12 +30,6 @@ export default Bio;
 const Wrapper = styled.section`
   width: 100%;
   padding: 12rem 5.5rem;
-
-  h1 {
-    font-size: 4rem;
-    width: 100%;
-    margin-bottom: 4rem;
-  }
 
   p {
     font-size: 1.2rem;

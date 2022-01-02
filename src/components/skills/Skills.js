@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import SkillsList from './SkillsList';
+import H1 from '../H1';
 
 export const query = graphql`
   {
@@ -26,7 +27,7 @@ export const PureSkills = ({ data }) => {
   if (!data) return null;
   return (
     <Wrapper data-testid="skills">
-      <h1>Skills</h1>
+      <H1>Skills</H1>
       <SkillsList skills={data} />
       <hr className="divide" />
     </Wrapper>
@@ -50,12 +51,6 @@ const Wrapper = styled.section`
   padding: 12rem 5.5rem 12rem 5.5rem;
   background-color: ${({ theme }) => theme.colorLightGrey};
   color: ${({ theme }) => theme.colorBlack};
-
-  h1 {
-    font-size: 4rem;
-    width: 100%;
-    margin-bottom: 4rem;
-  }
 
   .divide {
     margin-top: 14rem;
