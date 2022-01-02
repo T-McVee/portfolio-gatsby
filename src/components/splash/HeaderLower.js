@@ -1,32 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
 import SocialIcons from '../SocialIcons';
 
-export const query = graphql`
-  {
-    data: allContentfulContactMethod(
-      limit: 3
-      sort: { fields: order, order: ASC }
-    ) {
-      nodes {
-        id
-        address
-        type
-        faIcon {
-          library
-          icon
-        }
-      }
-    }
-  }
-`;
-
 export const HeaderLower = () => {
-  const {
-    data: { nodes },
-  } = useStaticQuery(query);
-
   return (
     <Wrapper className="rellax" data-rellax-speed="1.08">
       <div className="text">

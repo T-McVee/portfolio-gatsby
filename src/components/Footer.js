@@ -44,6 +44,11 @@ const Wrapper = styled.footer`
 
   .icon {
     color: ${({ theme }) => theme.colorWhite};
+    transition: color ${({ theme }) => theme.time};
+
+    &:hover {
+      color: ${({ theme }) => theme.colorAccent1};
+    }
   }
 `;
 

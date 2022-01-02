@@ -66,6 +66,10 @@ const Wrapper = styled.div`
     font-size: 1rem;
     font-weight: 300;
     margin-top: 0.5rem;
+
+    @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
+      font-size: 0.8rem;
+    }
   }
 
   @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
@@ -81,13 +85,5 @@ const Wrapper = styled.div`
     padding: 0;
     margin: 0;
     transform: translate(0%);
-  }
-`;
-
-const Logo = styled.img``;
-
-const H2 = styled.h2`
-  @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
-    font-size: 0.8rem;
   }
 `;

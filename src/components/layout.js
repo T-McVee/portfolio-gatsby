@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: Helvetica, sans-serif;
   }
 
+  .ReactModal__Body--open {
+    overflow: hidden;
+  }
+
   .bold {
     font-weight: 600;
   }
