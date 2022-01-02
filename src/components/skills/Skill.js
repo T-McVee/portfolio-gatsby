@@ -45,12 +45,17 @@ const Wrapper = styled.div`
   .logo {
     width: 4rem;
     height: 4rem;
+
+    @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   .icon-skill {
     font-size: 4rem;
 
-    @media screen and (max-width: $breakpointTablet) {
+    @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
       font-size: 3rem;
     }
   }
@@ -79,12 +84,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Logo = styled.img`
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
-    width: 3rem;
-    height: 3rem;
-  }
-`;
+const Logo = styled.img``;
 
 const H2 = styled.h2`
   @media screen and (max-width: ${(props) => props.theme.breakpointPhone}) {
