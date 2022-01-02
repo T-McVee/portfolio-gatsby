@@ -6,15 +6,15 @@ const ContactForm = (props) => {
   const { name, email, phone, message } = formInfo;
 
   return (
-    <Form
+    <Wrapper
       onSubmit={(e) => {
         handleFormSubmit(e);
       }}
       data-testid="contact-form"
     >
-      <FormControl>
-        <Label htmlFor="name">Your name:</Label>
-        <Input
+      <div class="form-control">
+        <label htmlFor="name">Your name:</label>
+        <input
           type="text"
           name="name"
           id="name"
@@ -25,10 +25,10 @@ const ContactForm = (props) => {
           required
         />
         <Alert>Name is required</Alert>
-      </FormControl>
-      <FormControl>
-        <Label htmlFor="email">Email:</Label>
-        <Input
+      </div>
+      <div class="form-control">
+        <label htmlFor="email">Email:</label>
+        <input
           type="email"
           name="email"
           id="email"
@@ -38,10 +38,10 @@ const ContactForm = (props) => {
           required
         />
         <Alert>Email is required</Alert>
-      </FormControl>
-      <FormControl>
-        <Label htmlFor="phone">Phone:</Label>
-        <Input
+      </div>
+      <div class="form-control">
+        <label htmlFor="phone">Phone:</label>
+        <input
           type="phone"
           name="phone"
           id="phone"
@@ -49,10 +49,10 @@ const ContactForm = (props) => {
           value={phone}
           onChange={handleFormChange}
         />
-      </FormControl>
-      <FormControl>
-        <Label htmlFor="message">Message:</Label>
-        <TextArea
+      </div>
+      <div class="form-control">
+        <label htmlFor="message">Message:</label>
+        <textarea
           name="message"
           id="message"
           value={message}
@@ -61,40 +61,70 @@ const ContactForm = (props) => {
           required
         />
         <Alert>Message is required</Alert>
-      </FormControl>
-      <FormControl>
-        <Button>Contact</Button>
-      </FormControl>
-    </Form>
+      </div>
+      <div class="form-control">
+        <button>Contact</button>
+      </div>
+    </Wrapper>
   );
 };
 
 export default ContactForm;
 
-const Form = styled.form`
+const Wrapper = styled.form`
   width: 100%;
   height: 100%;
-`;
 
-const FormControl = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-`;
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 
-const Label = styled.label`
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-`;
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 
-const Input = styled.input`
-  font-size: 1.2rem;
-  border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.colorBlack};
+  input {
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colorBlack};
 
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${({ theme }) => theme.colorAccent1};
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid ${({ theme }) => theme.colorAccent1};
+    }
+  }
+
+  textarea {
+    font-size: 1.2rem;
+    height: 8rem;
+    font-family: Helvetica, Arial, sans-serif;
+    border: none;
+    border-radius: ${({ theme }) => theme.radiusSmall};
+    background-color: ${({ theme }) => theme.colorLightGrey};
+    padding: 0.5rem;
+    resize: none;
+
+    &:focus {
+      outline: 1px solid ${({ theme }) => theme.colorAccent1};
+    }
+  }
+
+  button {
+    font-size: 1.2rem;
+
+    color: ${({ theme }) => theme.colorWhite};
+    background-color: ${({ theme }) => theme.colorAccent1};
+    padding: 1rem;
+    border: none;
+    border-radius: ${({ theme }) => theme.radiusSmall};
+
+    &:hover {
+      cursor: pointer;
+      outline: 1px solid black;
+    }
   }
 `;
 
@@ -106,35 +136,5 @@ const Alert = styled.small`
 
   &.show {
     opacity: 1;
-  }
-`;
-
-const TextArea = styled.textarea`
-  font-size: 1.2rem;
-  height: 8rem;
-  font-family: Helvetica, Arial, sans-serif;
-  border: none;
-  border-radius: ${({ theme }) => theme.radiusSmall};
-  background-color: ${({ theme }) => theme.colorLightGrey};
-  padding: 0.5rem;
-  resize: none;
-
-  &:focus {
-    outline: 1px solid ${({ theme }) => theme.colorAccent1};
-  }
-`;
-
-const Button = styled.button`
-  font-size: 1.2rem;
-
-  color: ${({ theme }) => theme.colorWhite};
-  background-color: ${({ theme }) => theme.colorAccent1};
-  padding: 1rem;
-  border: none;
-  border-radius: ${({ theme }) => theme.radiusSmall};
-
-  &:hover {
-    cursor: pointer;
-    outline: 1px solid black;
   }
 `;
