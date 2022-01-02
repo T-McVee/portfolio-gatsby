@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Head from '../components/Head';
 import Splash from '../components/splash/Splash';
 import Bio from '../components/bio/Bio';
 import Work from '../components/work/Work';
@@ -10,7 +11,6 @@ import Layout from '../components/layout';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { Helmet } from 'react-helmet';
 
 library.add(fab, faEnvelope);
 
@@ -74,7 +74,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="App">
-        <Helmet></Helmet>
+        <Head />
         <Splash handleOpenModal={handleOpenModal} />
         <Bio />
         <Work />
