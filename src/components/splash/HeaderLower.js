@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SocialIcons from '../SocialIcons';
 
 export const query = graphql`
   {
@@ -42,7 +43,8 @@ export const HeaderLower = () => {
           experiences and solve problems.
         </p>
       </div>
-      <div className="icons">
+      <SocialIcons wrapperClass="icons vertical" />
+      {/* <div className="icons">
         {nodes.map((node) => (
           <a href={node.address} target="blank" key={node.id}>
             <span>Tim's {node.type}</span>
@@ -52,7 +54,7 @@ export const HeaderLower = () => {
             />
           </a>
         ))}
-      </div>
+      </div> */}
     </Wrapper>
   );
 };
@@ -94,7 +96,7 @@ const Wrapper = styled.div`
     padding: 0.5rem;
   }
 
-  .icons {
+  .vertical {
     position: relative;
     z-index: 5;
     display: flex;
@@ -103,26 +105,6 @@ const Wrapper = styled.div`
     width: 3rem;
     height: 67%;
     justify-content: space-around;
-
-    span {
-      position: absolute;
-      height: 1px;
-      width: 1px;
-      clip: rect(1px, 1px, 1px, 1px);
-      overflow: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: ${(props) => props.theme.colorBlack};
-      transform: translate(50%);
-      transition: color ${(props) => props.theme.time};
-
-      &:hover {
-        cursor: pointer;
-        color: ${(props) => props.theme.colorAccent1};
-      }
-    }
   }
 
   @media screen and (max-width: ${(props) => props.theme.breakpointLaptop}) {

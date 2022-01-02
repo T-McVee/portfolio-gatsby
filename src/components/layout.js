@@ -17,22 +17,37 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
-  .icon {
-  font-size: 1.75rem;
-}
+  .icons {
+    
+
+    span {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      clip: rect(1px, 1px, 1px, 1px);
+      overflow: hidden;
+    }
+  
+
+    a {
+      text-decoration: none;
+      color: ${(props) => props.theme.colorBlack};
+      transform: translate(50%);
+      transition: color ${(props) => props.theme.time};
+
+      &:hover {
+        cursor: pointer;
+        color: ${(props) => props.theme.colorAccent1};
+      }
+    }
 
   .icon-footer {
-  font-size: 2rem;
-  margin: 0 1rem;
+    font-size: 2rem;
+    margin: 0 1rem;
   }
 
-.icon-skill {
-  font-size: 4rem;
-
-  @media screen and (max-width: $breakpointTablet) {
-    font-size: 3rem;
-  }
 }
+
 
   .slider {
   width: 100%;

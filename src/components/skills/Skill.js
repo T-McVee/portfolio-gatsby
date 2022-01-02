@@ -47,6 +47,14 @@ const Wrapper = styled.div`
     height: 4rem;
   }
 
+  .icon-skill {
+    font-size: 4rem;
+
+    @media screen and (max-width: $breakpointTablet) {
+      font-size: 3rem;
+    }
+  }
+
   h2 {
     width: 100%;
     text-align: center;
