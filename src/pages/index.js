@@ -3,6 +3,8 @@ import Splash from '../components/splash/Splash';
 import Bio from '../components/bio/Bio';
 import Work from '../components/work/Work';
 import Skills from '../components/skills/Skills';
+import LowerCta from '../components/LowerCta';
+import Footer from '../components/Footer';
 import Modal from '../components/modal/Modal';
 import Layout from '../components/layout';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -75,6 +77,10 @@ const IndexPage = () => {
         <Helmet></Helmet>
         <Splash handleOpenModal={handleOpenModal} />
         <Bio />
+        <Work />
+        <Skills />
+        <LowerCta handleOpenModal={handleOpenModal} />
+        <Footer />
         <Modal
           showModal={showModal}
           handleCloseModal={handleCloseModal}
@@ -83,8 +89,6 @@ const IndexPage = () => {
           isSubmited={isSubmited}
           formInfo={formInfo}
         />
-        <Work />
-        <Skills />
       </div>
     </Layout>
   );
