@@ -28,10 +28,8 @@ const Wrapper = styled.div`
     text-transform: uppercase;
     line-height: 5rem;
     margin-bottom: 1rem;
-  }
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
-    h1 {
+    @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
       font-size: 2.5rem;
       line-height: 3rem;
     }
