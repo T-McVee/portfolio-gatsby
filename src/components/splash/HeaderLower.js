@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SocialIcons from '../SocialIcons';
 
 export const query = graphql`
@@ -29,7 +28,7 @@ export const HeaderLower = () => {
   } = useStaticQuery(query);
 
   return (
-    <Wrapper className="rellax" data-rellax-speed="0.5">
+    <Wrapper className="rellax" data-rellax-speed="1.08">
       <div className="text">
         <h2>
           Web Dev{' '}
@@ -44,17 +43,6 @@ export const HeaderLower = () => {
         </p>
       </div>
       <SocialIcons wrapperClass="icons vertical" />
-      {/* <div className="icons">
-        {nodes.map((node) => (
-          <a href={node.address} target="blank" key={node.id}>
-            <span>Tim's {node.type}</span>
-            <FontAwesomeIcon
-              icon={[node.faIcon.library, node.faIcon.icon]}
-              className="icon-footer"
-            />
-          </a>
-        ))}
-      </div> */}
     </Wrapper>
   );
 };
