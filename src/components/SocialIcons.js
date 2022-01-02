@@ -31,16 +31,11 @@ const SocialIcons = (props) => {
   return (
     <Wrapper className={wrapperClass}>
       {nodes.map((node) => (
-        <a
-          className={iconClass}
-          href={node.address}
-          target="blank"
-          key={node.id}
-        >
+        <a href={node.address} target="blank" key={node.id}>
           <span>Tim's {node.type}</span>
           <FontAwesomeIcon
             icon={[node.faIcon.library, node.faIcon.icon]}
-            className="icon-footer"
+            className={iconClass}
           />
         </a>
       ))}
