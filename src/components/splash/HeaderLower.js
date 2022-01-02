@@ -42,7 +42,7 @@ export const HeaderLower = () => {
           experiences and solve problems.
         </p>
       </div>
-      <SocialIcons wrapperClass="icons vertical" />
+      <SocialIcons wrapperClass="icons vertical" iconClass="icon" />
     </Wrapper>
   );
 };

@@ -5,7 +5,7 @@ import SocialIcons from './SocialIcons';
 const Footer = () => {
   return (
     <Wrapper>
-      <SocialIcons wrapperClass="icons" iconClass="icon-footer" />
+      <SocialIcons wrapperClass="icons" iconClass="icon" />
       <a href="mailto: iam@tmcvee.com">
         <Email>iam@tmcvee.com</Email>
       </a>
@@ -42,7 +42,7 @@ const Wrapper = styled.footer`
     text-align: center;
   }
 
-  .icon-footer {
+  .icon {
     color: ${({ theme }) => theme.colorWhite};
   }
 `;
