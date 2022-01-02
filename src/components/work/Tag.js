@@ -18,9 +18,9 @@ const Wrapper = styled.li`
   list-style: none;
   font-size: 1.2rem;
   text-transform: lowercase;
-  color: ${(props) => props.theme.colorWhite};
-  background-color: ${(props) => props.theme.colorGrey};
-  border-radius: ${(props) => props.theme.radiusSmall};
+  color: ${({ theme }) => theme.colorWhite};
+  background-color: ${({ theme }) => theme.colorGrey};
+  border-radius: ${({ theme }) => theme.radiusSmall};
   margin: 0.5rem 0.5rem 0 0;
   transition: transform 0.2s;
 
@@ -29,19 +29,19 @@ const Wrapper = styled.li`
     transform: scale(1.02);
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointXlScreen}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointXlScreen}) {
     font-size: 1rem;
     padding: 0.5rem 1.25rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointLaptop}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointLaptop}) {
     font-size: 1.2rem;
     padding: 0.5rem 1.5rem;
-    margin: ${(props) =>
-      props.rightAlign ? '0.5rem 0.5rem 0 0' : '0.5rem 0 0 0.5rem'};
+    margin: ${({ rightAlign }) =>
+      rightAlign ? '0.5rem 0.5rem 0 0' : '0.5rem 0 0 0.5rem'};
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 1rem;
     padding: 0.5rem 1.25rem;
   }

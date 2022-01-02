@@ -30,7 +30,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: ${(props) => (props.rightAlign ? 'flex-satr' : 'flex-end')};
+  justify-content: ${({ rightAlign }) =>
+    rightAlign ? 'flex-satr' : 'flex-end'};
   margin: 2rem 0;
-  text-align: ${(props) => (props.rightAlign ? 'left' : 'right')};
+  text-align: ${({ rightAlign }) => (rightAlign ? 'left' : 'right')};
 `;

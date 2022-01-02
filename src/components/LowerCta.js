@@ -19,7 +19,7 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${(props) => props.theme.colorLightGrey};
+  background-color: ${({ theme }) => theme.colorLightGrey};
   padding: 0 5.5rem 12rem 5.5rem;
 
   h1 {
@@ -28,7 +28,7 @@ const Wrapper = styled.section`
     text-align: center;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 0 5.5rem 4rem 5.5rem;
   }
 `;

@@ -126,7 +126,7 @@ const ModalBody = styled.div`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     margin: 1rem 1rem;
     width: calc(100% - 2rem);
 
@@ -142,12 +142,12 @@ const ButtonClose = styled.button`
   font-size: 1.4rem;
   background-color: transparent;
   border: none;
-  transition: color ${(props) => props.theme.time},
-    transform ${(props) => props.theme.time};
+  transition: color ${({ theme }) => theme.time},
+    transform ${({ theme }) => theme.time};
 
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.colorAccent1};
+    color: ${({ theme }) => theme.colorAccent1};
     transform: scale(1.1);
   }
 `;
@@ -155,11 +155,11 @@ const ButtonClose = styled.button`
 const Button = styled.button`
   font-size: 1.2rem;
 
-  color: ${(props) => props.theme.colorWhite};
-  background-color: ${(props) => props.theme.colorAccent1};
+  color: ${({ theme }) => theme.colorWhite};
+  background-color: ${({ theme }) => theme.colorAccent1};
   padding: 1rem;
   border: none;
-  border-radius: ${(props) => props.theme.radiusSmall};
+  border-radius: ${({ theme }) => theme.radiusSmall};
   margin-top: 0.5rem;
 
   &:hover {

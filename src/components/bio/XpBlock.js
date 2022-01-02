@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
     font-weight: 300;
     text-transform: lowercase;
-    color: ${(props) => props.theme.colorDarkGrey};
+    color: ${({ theme }) => theme.colorDarkGrey};
     margin-bottom: 1rem;
   }
 
@@ -43,12 +43,12 @@ const Wrapper = styled.div`
   .bigNumber {
     font-size: 6rem;
     font-weight: 500;
-    color: ${(props) => props.theme.colorAccent1};
+    color: ${({ theme }) => theme.colorAccent1};
     line-height: 3.5rem;
   }
 
   .midChar {
-    color: ${(props) => props.theme.colorAccent1};
+    color: ${({ theme }) => theme.colorAccent1};
     font-size: 2rem;
     line-height: 1rem;
     font-weight: 600;
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
     line-height: 1.8rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     .bigNumber {
       font-size: 4rem;
     }

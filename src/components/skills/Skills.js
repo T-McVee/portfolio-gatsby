@@ -48,8 +48,8 @@ const Wrapper = styled.section`
   flex-direction: column;
   width: 100%;
   padding: 12rem 5.5rem 12rem 5.5rem;
-  background-color: ${(props) => props.theme.colorLightGrey};
-  color: ${(props) => props.theme.colorBlack};
+  background-color: ${({ theme }) => theme.colorLightGrey};
+  color: ${({ theme }) => theme.colorBlack};
 
   h1 {
     font-size: 4rem;
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
     margin-top: 14rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 4rem;
 
     h1 {

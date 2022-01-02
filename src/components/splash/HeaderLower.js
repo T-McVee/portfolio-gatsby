@@ -95,7 +95,7 @@ const Wrapper = styled.div`
     justify-content: space-around;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointLaptop}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointLaptop}) {
     h2 {
       text-shadow: 0px 0px 26px rgba(255, 255, 255, 0.7);
     }

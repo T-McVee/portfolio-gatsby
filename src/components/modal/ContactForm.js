@@ -90,18 +90,18 @@ const Label = styled.label`
 const Input = styled.input`
   font-size: 1.2rem;
   border: none;
-  border-bottom: 1px solid ${(props) => props.theme.colorBlack};
+  border-bottom: 1px solid ${({ theme }) => theme.colorBlack};
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${(props) => props.theme.colorAccent1};
+    border-bottom: 1px solid ${({ theme }) => theme.colorAccent1};
   }
 `;
 
 const Alert = styled.small`
   display: none;
   opacity: 0;
-  color: ${(props) => props.theme.colorAccent2};
+  color: ${({ theme }) => theme.colorAccent2};
   padding-top: 0.25rem;
 
   &.show {
@@ -114,25 +114,24 @@ const TextArea = styled.textarea`
   height: 8rem;
   font-family: Helvetica, Arial, sans-serif;
   border: none;
-  // border-bottom: 1px solid ${(props) => props.theme.colorBlack};
-  border-radius: ${(props) => props.theme.radiusSmall};
-  background-color: ${(props) => props.theme.colorLightGrey};
+  border-radius: ${({ theme }) => theme.radiusSmall};
+  background-color: ${({ theme }) => theme.colorLightGrey};
   padding: 0.5rem;
   resize: none;
 
   &:focus {
-    outline: 1px solid ${(props) => props.theme.colorAccent1};
+    outline: 1px solid ${({ theme }) => theme.colorAccent1};
   }
 `;
 
 const Button = styled.button`
   font-size: 1.2rem;
 
-  color: ${(props) => props.theme.colorWhite};
-  background-color: ${(props) => props.theme.colorAccent1};
+  color: ${({ theme }) => theme.colorWhite};
+  background-color: ${({ theme }) => theme.colorAccent1};
   padding: 1rem;
   border: none;
-  border-radius: ${(props) => props.theme.radiusSmall};
+  border-radius: ${({ theme }) => theme.radiusSmall};
 
   &:hover {
     cursor: pointer;

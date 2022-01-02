@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   z-index: 5;
   width: 100%;
   height: calc(100% - 14rem);
-  border-right: 1px solid ${(props) => props.theme.colorBlack};
+  border-right: 1px solid ${({ theme }) => theme.colorBlack};
 
   h1 {
     font-size: 4.5rem;
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     margin-bottom: 1rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointPhone}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
     h1 {
       font-size: 2.5rem;
       line-height: 3rem;

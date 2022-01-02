@@ -23,7 +23,7 @@ const Wrapper = styled.section`
   width: 100%;
   padding: 0 5.5rem;
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 0 2rem;
   }
 `;
@@ -33,7 +33,7 @@ const H1 = styled.h1`
   width: 100%;
   margin-bottom: 4rem;
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 3rem;
     overflow-wrap: break-word;
   }

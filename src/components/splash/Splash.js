@@ -69,7 +69,7 @@ const Wrapper = styled.section`
     height: 100vh;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 2rem;
   }
 `;

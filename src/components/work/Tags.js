@@ -21,5 +21,5 @@ const Wrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: ${(props) => (props.rightAlign ? 'start' : 'end')};
+  justify-content: ${({ rightAlign }) => (rightAlign ? 'start' : 'end')};
 `;

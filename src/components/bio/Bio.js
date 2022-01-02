@@ -45,7 +45,7 @@ const Wrapper = styled.section`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colorAccent1};
+    color: ${({ theme }) => theme.colorAccent1};
   }
 
   .xp {
@@ -58,7 +58,7 @@ const Wrapper = styled.section`
     margin-top: 12rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 12rem 2rem;
 
     h1 {

@@ -31,12 +31,12 @@ const Wrapper = styled.div`
     font-weight: 300;
     margin-bottom: 1rem;
     font-size: 2rem;
-    text-align: ${(props) => (props.rightAlign ? 'left' : 'right')};
+    text-align: ${({ rightAlign }) => (rightAlign ? 'left' : 'right')};
   }
 
   .subtitle {
-    color: ${(props) => props.theme.colorAccent2};
-    text-align: ${(props) => (props.rightAlign ? 'left' : 'right')};
+    color: ${({ theme }) => theme.colorAccent2};
+    text-align: ${({ rightAlign }) => (rightAlign ? 'left' : 'right')};
     font-size: 1.5rem;
     font-weight: 300;
     text-transform: lowercase;
@@ -45,11 +45,11 @@ const Wrapper = styled.div`
 
   .body {
     font-size: 1.2rem;
-    text-align: ${(props) => (props.rightAlign ? 'left' : 'right')};
+    text-align: ${({ rightAlign }) => (rightAlign ? 'left' : 'right')};
     margin-bottom: 1rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointXlScreen}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointXlScreen}) {
     h2 {
       font-size: 1.5rem;
     }
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointLaptop}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointLaptop}) {
     width: 100%;
     max-width: 100%;
     margin-top: 1rem;
@@ -83,7 +83,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     h2 {
       font-size: 1.5rem;
     }

@@ -12,8 +12,8 @@ export default ButtonCta;
 const Button = styled.div`
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: 1px solid ${(props) => props.theme.colorBlack};
-  border-radius: ${(props) => props.theme.radiusSmall};
+  border: 1px solid ${({ theme }) => theme.colorBlack};
+  border-radius: ${({ theme }) => theme.radiusSmall};
   transition: all 0.2s ease-in;
   position: relative;
   overflow: hidden;
@@ -44,7 +44,7 @@ const Button = styled.div`
     top: 25%;
     width: 160%;
     height: 190%;
-    background-color: ${(props) => props.theme.colorAccent1};
+    background-color: ${({ theme }) => theme.colorAccent1};
     border-radius: 50%;
     display: block;
     transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -52,20 +52,20 @@ const Button = styled.div`
   }
 
   &:hover {
-    color: ${(props) => props.theme.colorWhite};
-    border: 1px solid ${(props) => props.theme.colorAccent1};
+    color: ${({ theme }) => theme.colorWhite};
+    border: 1px solid ${({ theme }) => theme.colorAccent1};
     cursor: pointer;
   }
 
   &:hover:before {
     right: -105%;
-    background-color: ${(props) => props.theme.colorAccent1};
+    background-color: ${({ theme }) => theme.colorAccent1};
     transform: translateX(-50%) scaleY(1.4) scaleX(1.3);
   }
 
   &:hover:after {
     right: -100%;
-    background-color: ${(props) => props.theme.colorAccent1};
+    background-color: ${({ theme }) => theme.colorAccent1};
     transform: translateX(-50%) scaleY(1.4) scaleX(1.3);
   }
 `;

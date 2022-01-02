@@ -71,21 +71,21 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: row;
   margin-bottom: 12rem;
-  margin-left: ${(props) => (props.rightAlign ? '5.5rem' : '2.5rem')};
+  margin-left: ${({ rightAlign }) => (rightAlign ? '5.5rem' : '2.5rem')};
   max-width: 1504px;
   width: calc(90% - 5.5rem);
 
   .cover {
     width: 58%;
-    margin: ${(props) => (props.rightAlign ? '0 2rem 0 0' : '0 0 0 2rem')};
-    border-radius: ${(props) => props.theme.radiusSmall};
-    box-shadow: 2px 2px 8px ${(props) => props.theme.colorGrey};
-    transition: box-shadow ${(props) => props.theme.timeLong},
-      transform ${(props) => props.theme.timeLong} ease-in-out;
+    margin: ${({ rightAlign }) => (rightAlign ? '0 2rem 0 0' : '0 0 0 2rem')};
+    border-radius: ${({ theme }) => theme.radiusSmall};
+    box-shadow: 2px 2px 8px ${({ theme }) => theme.colorGrey};
+    transition: box-shadow ${({ theme }) => theme.timeLong},
+      transform ${({ theme }) => theme.timeLong} ease-in-out;
 
     &:hover {
       cursor: pointer;
-      box-shadow: 2px 2px 12px ${(props) => props.theme.colorLightGrey};
+      box-shadow: 2px 2px 12px ${({ theme }) => theme.colorLightGrey};
       transform: scale(1.01);
     }
   }
@@ -94,12 +94,12 @@ const Wrapper = styled.article`
     // width: 100%;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointLaptop}) {
-    flex-direction: ${(props) =>
-      props.rightAlign ? 'column' : 'column-reverse'};
+  @media screen and (max-width: ${({ theme }) => theme.breakpointLaptop}) {
+    flex-direction: ${({ rightAlign }) =>
+      rightAlign ? 'column' : 'column-reverse'};
 
-    margin-left: ${(props) => (props.rightAlign ? '0' : '2.5rem')};
-    float: ${(props) => (props.rightAlign ? 'left' : 'right')};
+    margin-left: ${({ rightAlign }) => (rightAlign ? '0' : '2.5rem')};
+    float: ${({ rightAlign }) => (rightAlign ? 'left' : 'right')};
 
     .cover {
       width: 100%;
@@ -107,7 +107,7 @@ const Wrapper = styled.article`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointPhone}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
     width: 100%;
   }
 `;

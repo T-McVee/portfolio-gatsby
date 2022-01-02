@@ -5,8 +5,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import Skill from './Skill';
 
 const SkillsList = ({ skills }) => {
-  // console.log(skills[1]);
-
   if (!skills) return null;
 
   const settings = {

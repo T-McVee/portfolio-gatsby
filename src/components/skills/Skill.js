@@ -36,9 +36,9 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 12rem;
-  background-color: ${(props) => props.theme.colorGrey};
+  background-color: ${({ theme }) => theme.colorGrey};
   list-style: none;
-  border-radius: ${(props) => props.theme.radiusSmall};
+  border-radius: ${({ theme }) => theme.radiusSmall};
   margin: 0 1rem 1rem 0;
   padding: 1rem 0;
 
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     width: 4rem;
     height: 4rem;
 
-    @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
       width: 3rem;
       height: 3rem;
     }
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   .icon-skill {
     font-size: 4rem;
 
-    @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
       font-size: 3rem;
     }
   }
@@ -68,7 +68,7 @@ const Wrapper = styled.div`
     margin-top: 0.5rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.breakpointTablet}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointTablet}) {
     width: 8rem;
     height: 8rem;
     margin: 0 0 2rem 0;
@@ -87,7 +87,7 @@ const Wrapper = styled.div`
 const Logo = styled.img``;
 
 const H2 = styled.h2`
-  @media screen and (max-width: ${(props) => props.theme.breakpointPhone}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpointPhone}) {
     font-size: 0.8rem;
   }
 `;
