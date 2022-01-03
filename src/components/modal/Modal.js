@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import ContactForm from './ContactForm';
 
-const root = document.getElementsByClassName('App');
-ReactModal.setAppElement(root);
+// const root = document.getElementsByClassName('App');
+ReactModal.setAppElement('#___gatsby');
 
 const Modal = (props) => {
   const {

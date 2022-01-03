@@ -12,7 +12,7 @@ const ContactForm = (props) => {
       }}
       data-testid="contact-form"
     >
-      <div class="form-control">
+      <div className="form-control">
         <label htmlFor="name">Your name:</label>
         <input
           type="text"
@@ -26,7 +26,7 @@ const ContactForm = (props) => {
         />
         <Alert>Name is required</Alert>
       </div>
-      <div class="form-control">
+      <div className="form-control">
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -39,7 +39,7 @@ const ContactForm = (props) => {
         />
         <Alert>Email is required</Alert>
       </div>
-      <div class="form-control">
+      <div className="form-control">
         <label htmlFor="phone">Phone:</label>
         <input
           type="phone"
@@ -50,7 +50,7 @@ const ContactForm = (props) => {
           onChange={handleFormChange}
         />
       </div>
-      <div class="form-control">
+      <div className="form-control">
         <label htmlFor="message">Message:</label>
         <textarea
           name="message"
@@ -62,7 +62,7 @@ const ContactForm = (props) => {
         />
         <Alert>Message is required</Alert>
       </div>
-      <div class="form-control">
+      <div className="form-control">
         <button>Contact</button>
       </div>
     </Wrapper>

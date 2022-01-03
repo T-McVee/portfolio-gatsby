@@ -36,7 +36,7 @@ const IndexPage = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setFormInfo({});
+    clearForm();
     setIsSubmitted(false);
   };
 
