@@ -6,13 +6,15 @@ import Work from '../components/work/Work';
 import Skills from '../components/skills/Skills';
 import LowerCta from '../components/LowerCta';
 import Footer from '../components/Footer';
-import Modal from '../components/modal/Modal';
 import Layout from '../components/layout';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faEnvelope);
+import ContactFormModal from '../components/modal/ContactFormModal';
+
+library.add(fab, faEnvelope, faTimes);
 
 const encode = (data) => {
   return Object.keys(data)
@@ -81,7 +83,7 @@ const IndexPage = () => {
         <Skills />
         <LowerCta handleOpenModal={handleOpenModal} />
         <Footer />
-        <Modal
+        <ContactFormModal
           showModal={showModal}
           handleCloseModal={handleCloseModal}
           handleFormChange={handleFormChange}

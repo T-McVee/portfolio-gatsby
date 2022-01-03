@@ -22,8 +22,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .icons {
-    
-
     span {
       position: absolute;
       height: 1px;
@@ -45,21 +43,21 @@ const GlobalStyle = createGlobalStyle`
       }
     }
 
-  .icon {
-    font-size: 2rem;
-    margin: 0 1rem;
+    .icon {
+      font-size: 2rem;
+      margin: 0 1rem;
+    }
   }
 
-}
-
+ 
 
   .slider {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const Layout = ({ children }) => {

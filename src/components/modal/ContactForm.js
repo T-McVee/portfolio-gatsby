@@ -1,71 +1,76 @@
 import React from 'react';
 import styled from 'styled-components';
+import H1 from '../H1';
+import Button from '../Button';
 
 const ContactForm = (props) => {
   const { formInfo, handleFormChange, handleFormSubmit } = props;
   const { name, email, phone, message } = formInfo;
 
   return (
-    <Wrapper
-      onSubmit={(e) => {
-        handleFormSubmit(e);
-      }}
-      data-testid="contact-form"
-    >
-      <div className="form-control">
-        <label htmlFor="name">Your name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="name"
-          value={name}
-          onChange={handleFormChange}
-          autoFocus
-          required
-        />
-        <Alert>Name is required</Alert>
-      </div>
-      <div className="form-control">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="name@email.com"
-          value={email}
-          onChange={handleFormChange}
-          required
-        />
-        <Alert>Email is required</Alert>
-      </div>
-      <div className="form-control">
-        <label htmlFor="phone">Phone:</label>
-        <input
-          type="phone"
-          name="phone"
-          id="phone"
-          placeholder="888-888-8888"
-          value={phone}
-          onChange={handleFormChange}
-        />
-      </div>
-      <div className="form-control">
-        <label htmlFor="message">Message:</label>
-        <textarea
-          name="message"
-          id="message"
-          value={message}
-          placeholder="Your message..."
-          onChange={handleFormChange}
-          required
-        />
-        <Alert>Message is required</Alert>
-      </div>
-      <div className="form-control">
-        <button>Contact</button>
-      </div>
-    </Wrapper>
+    <>
+      <H1 fontSize="3rem">Get in contact</H1>
+      <Wrapper
+        onSubmit={(e) => {
+          handleFormSubmit(e);
+        }}
+        data-testid="contact-form"
+      >
+        <div className="form-control">
+          <label htmlFor="name">Your name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="name"
+            value={name}
+            onChange={handleFormChange}
+            autoFocus
+            required
+          />
+          <Alert>Name is required</Alert>
+        </div>
+        <div className="form-control">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="name@email.com"
+            value={email}
+            onChange={handleFormChange}
+            required
+          />
+          <Alert>Email is required</Alert>
+        </div>
+        <div className="form-control">
+          <label htmlFor="phone">Phone:</label>
+          <input
+            type="phone"
+            name="phone"
+            id="phone"
+            placeholder="888-888-8888"
+            value={phone}
+            onChange={handleFormChange}
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="message">Message:</label>
+          <textarea
+            name="message"
+            id="message"
+            value={message}
+            placeholder="Your message..."
+            onChange={handleFormChange}
+            required
+          />
+          <Alert>Message is required</Alert>
+        </div>
+        <div className="form-control">
+          <Button>Contact</Button>
+        </div>
+      </Wrapper>
+    </>
   );
 };
 
@@ -109,21 +114,6 @@ const Wrapper = styled.form`
 
     &:focus {
       outline: 1px solid ${({ theme }) => theme.colorAccent1};
-    }
-  }
-
-  button {
-    font-size: 1.2rem;
-
-    color: ${({ theme }) => theme.colorWhite};
-    background-color: ${({ theme }) => theme.colorAccent1};
-    padding: 1rem;
-    border: none;
-    border-radius: ${({ theme }) => theme.radiusSmall};
-
-    &:hover {
-      cursor: pointer;
-      outline: 1px solid black;
     }
   }
 `;

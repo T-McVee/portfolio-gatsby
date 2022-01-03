@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Icon from './Icon';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const query = graphql`
   {
@@ -28,14 +28,15 @@ const SocialIcons = (props) => {
   const {
     data: { nodes },
   } = useStaticQuery(query);
+
   return (
     <Wrapper className={wrapperClass}>
       {nodes.map((node) => (
         <a href={node.address} target="blank" key={node.id}>
-          <span>Tim's {node.type}</span>
-          <FontAwesomeIcon
+          <Icon
             icon={[node.faIcon.library, node.faIcon.icon]}
-            className={iconClass}
+            label={`Tim's ${node.type}`}
+            iconClass={iconClass}
           />
         </a>
       ))}
