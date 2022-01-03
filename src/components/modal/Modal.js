@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import ContactForm from './ContactForm';
+import { theme } from '../layout';
 
-// const root = document.getElementsByClassName('App');
 ReactModal.setAppElement('#___gatsby');
 
 const Modal = (props) => {
@@ -18,16 +18,22 @@ const Modal = (props) => {
     handleCloseModal,
   } = props;
 
-  // Can the 768 come from props?
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    if (typeof window === undefined) return;
+    setIsDesktop(window.innerWidth > theme.breakpointTablet);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === undefined) return;
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   });
 
   const handleResize = () => {
-    setIsDesktop(window.innerWidth > 768);
+    if (typeof window === undefined) return;
+    setIsDesktop(window.innerWidth > theme.breakpointTablet);
   };
 
   const postSubmitStyles = () => {
