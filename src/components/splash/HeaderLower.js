@@ -4,7 +4,7 @@ import SocialIcons from '../SocialIcons';
 
 export const HeaderLower = () => {
   return (
-    <Wrapper className="rellax" data-rellax-speed="1.08">
+    <Wrapper className="rellax" data-rellax-speed="1.3">
       <div className="text">
         <h2>
           Web Dev{' '}

@@ -38,10 +38,10 @@ const Wrapper = styled.div`
 
   .mask-white {
     position: absolute;
-    bottom: -16rem;
+    bottom: -8rem;
     left: 0;
     width: 100vw;
-    height: 16rem;
+    height: 8rem;
     background-color: #ffffff;
   }
 `;

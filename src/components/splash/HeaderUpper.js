@@ -4,7 +4,7 @@ import { ButtonCta } from '../ButtonCta';
 
 const HeaderUpper = ({ handleOpenModal }) => {
   return (
-    <Wrapper className="rellax" data-rellax-speed="1.08">
+    <Wrapper className="rellax" data-rellax-speed="2">
       <h1>
         Tim <br /> <span className="bold">McVinish</span>
       </h1>

@@ -11,7 +11,7 @@ const Splash = (props) => {
   const { handleOpenModal } = props;
 
   useEffect(() => {
-    new Rellax('.rellax');
+    new Rellax('.rellax', {});
   }, []);
 
   return (
