@@ -8,17 +8,19 @@ const Bio = () => {
     <Wrapper>
       <H1>Schooled in marketing, in love with technology</H1>
       <p>
-        Howdy, Based in British Columbia, Canada, I'm a Marketing Specialist
-        turned Front-End Developer (Who may have taken a 7-year detour as a
-        restaurateur, but that's a whole{' '}
-        <a href="https://www.instagram.com/1609ssm/">other story</a>). I find
-        the outcomes from applying technology to life's problems fascinating and
-        rewarding. It's what drew me to Web Development and what I inspire to
-        create in each project.
+        Howdy, based in Brisbane, Australia, I'm a Marketing Specialist turned
+        Web Developer (Who may have taken a 7-year detour as a restaurateur in
+        Canada, but that's a whole{' '}
+        <a href="https://www.instagram.com/1609ssm/" target="_blank">
+          other story
+        </a>
+        ). I find the outcomes from applying technology to life's problems
+        fascinating and rewarding. It's what drew me to Web Development and what
+        I inspire to create in each project.
       </p>
       <div className="xp">
-        <XpBlock heading="Web development" number="3" />
-        <XpBlock heading="Marketing" number="8" />
+        <XpBlock heading="Web development" number="4" />
+        <XpBlock heading="Marketing" number="9" />
       </div>
       <hr />
     </Wrapper>
