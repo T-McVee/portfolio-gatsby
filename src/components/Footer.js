@@ -10,7 +10,7 @@ const Footer = () => {
         <Email>iam@tmcvee.com</Email>
       </a>
       <Copywrite>
-        &copy; Copyright 2021 Tim McVinish<Emoji>👨‍🚀</Emoji>
+        &copy; Copyright 2023 Tim McVinish<Emoji>👨‍🚀</Emoji>
       </Copywrite>
     </Wrapper>
   );
