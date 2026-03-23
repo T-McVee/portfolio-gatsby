@@ -1,0 +1,10 @@
+[
+  { "name": "HTML", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "html5", "order": 1 },
+  { "name": "CSS", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "css3-alt", "order": 2 },
+  { "name": "Javascript", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "js", "order": 3 },
+  { "name": "React", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "react", "order": 4 },
+  { "name": "Angular", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "angular", "order": 4 },
+  { "name": "Sass", "useFontAwesome": true, "faLibrary": "fab", "faIcon": "sass", "order": 5 },
+  { "name": "Gatsby", "useFontAwesome": false, "image": "/images/skills/gatsby.png", "order": 7 },
+  { "name": "BigCommerce", "useFontAwesome": false, "image": "/images/skills/bigcommerce.png", "order": 8 }
+]
