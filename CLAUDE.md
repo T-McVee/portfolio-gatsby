@@ -1,4 +1,3 @@
-<!-- GSD:project-start source:PROJECT.md -->
 ## Project
 
 **Tim's Personal Platform**
@@ -12,9 +11,7 @@ A personal website and platform for Tim — a senior software developer and tech
 - **Tech stack**: Next.js App Router, TypeScript, Tailwind CSS v4, MDX — already migrated, no framework changes
 - **Hosting**: Azure App Service — consistent with Tim's other Azure infrastructure
 - **Content**: File-based (MDX/JSON) — no external CMS dependency
-<!-- GSD:project-end -->
 
-<!-- GSD:stack-start source:codebase/STACK.md -->
 ## Technology Stack
 
 ## Languages
@@ -72,9 +69,7 @@ A personal website and platform for Tim — a senior software developer and tech
 - Site metadata: `src/content/site-metadata.json` - JSON configuration
 - File-based (no database) - Content loaded at build/server-side
 - Custom MDX parser in `src/lib/content.ts` - Parses YAML frontmatter and markdown body
-<!-- GSD:stack-end -->
 
-<!-- GSD:conventions-start source:CONVENTIONS.md -->
 ## Conventions
 
 ## Naming Patterns
@@ -177,9 +172,7 @@ A personal website and platform for Tim — a senior software developer and tech
 - Local component state with `useState()` for forms and modals
 - Refs for DOM elements: `useRef<HTMLDialogElement>(null)`
 - Props drilling for data (no context API or state management library)
-<!-- GSD:conventions-end -->
 
-<!-- GSD:architecture-start source:ARCHITECTURE.md -->
 ## Architecture
 
 ## Pattern Overview
@@ -242,27 +235,3 @@ A personal website and platform for Tim — a senior software developer and tech
 - API endpoint validates required fields, returns 400 status on validation failure
 - MDX parsing returns empty frontmatter if match fails: `if (!match) return { frontmatter: {}, body: content }`
 - Content loaders use synchronous file I/O, will throw if files missing
-## Cross-Cutting Concerns
-<!-- GSD:architecture-end -->
-
-<!-- GSD:workflow-start source:GSD defaults -->
-## GSD Workflow Enforcement
-
-Before using Edit, Write, or other file-changing tools, start work through a GSD command so planning artifacts and execution context stay in sync.
-
-Use these entry points:
-- `/gsd:quick` for small fixes, doc updates, and ad-hoc tasks
-- `/gsd:debug` for investigation and bug fixing
-- `/gsd:execute-phase` for planned phase work
-
-Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
-<!-- GSD:workflow-end -->
-
-
-
-<!-- GSD:profile-start -->
-## Developer Profile
-
-> Profile not yet configured. Run `/gsd:profile-user` to generate your developer profile.
-> This section is managed by `generate-claude-profile` -- do not edit manually.
-<!-- GSD:profile-end -->
