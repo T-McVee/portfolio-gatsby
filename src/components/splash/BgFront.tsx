@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import Image from "next/image";
 
-export default function BgFront() {
+const BgFront = forwardRef<HTMLDivElement>(function BgFront(_props, ref) {
   return (
-    <div className="absolute top-0 left-0 z-[1] w-full h-full">
+    <div ref={ref} className="absolute top-0 left-0 z-[1] w-full h-full">
       <Image
         src="/images/bg-splash-front.webp"
         alt="Standing on top of a mountain"
@@ -16,4 +17,6 @@ export default function BgFront() {
       />
     </div>
   );
-}
+});
+
+export default BgFront;
