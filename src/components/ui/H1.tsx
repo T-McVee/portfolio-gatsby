@@ -6,7 +6,7 @@ interface H1Props {
 export default function H1({ children, className }: H1Props) {
   return (
     <h1
-      className={`text-[4rem] w-full mb-16 max-tablet:text-[3rem] max-tablet:break-words ${className ?? ""}`}
+      className={`text-[4rem] font-bold w-full mb-16 max-tablet:text-[3rem] max-tablet:break-words ${className ?? ""}`}
     >
       {children}
     </h1>

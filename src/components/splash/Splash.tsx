@@ -25,7 +25,7 @@ export default function Splash({
     let ticking = false;
 
     const refs = [bgFrontRef, headerUpperRef, headerLowerRef];
-    refs.forEach(ref => {
+    refs.forEach((ref) => {
       if (ref.current) ref.current.style.willChange = "transform";
     });
 
