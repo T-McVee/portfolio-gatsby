@@ -1,0 +1,5 @@
+[
+  { "address": "https://github.com/T-McVee", "type": "GitHub", "faLibrary": "fab", "faIcon": "github", "order": 1 },
+  { "address": "https://www.linkedin.com/in/t-mcvee/", "type": "LinkedIn", "faLibrary": "fab", "faIcon": "linkedin", "order": 2 },
+  { "address": "mailto:iam@tmcvee.com", "type": "Email", "faLibrary": "far", "faIcon": "envelope", "order": 3 }
+]
