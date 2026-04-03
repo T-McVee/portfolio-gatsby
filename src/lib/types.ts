@@ -26,6 +26,13 @@ export interface ContactMethod {
   order: number;
 }
 
+export interface TimelineEntry {
+  year: string;
+  title: string;
+  description: string;
+  order: number;
+}
+
 export interface SiteMetadata {
   title: string;
   description: string;

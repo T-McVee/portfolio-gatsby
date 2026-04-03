@@ -1,0 +1,44 @@
+[
+  {
+    "year": "2006-2012",
+    "title": "It all started with Audio Engineering",
+    "description": "Began career in audio production, learning to leverage technology to bring creative visions to life. Understanding singnal flow became the framework that later helped me when moving into software development and system design",
+    "order": 1
+  },
+  {
+    "year": "2013",
+    "title": "The mountains are calling",
+    "description": "Ventured to British Columbia, Canada to induluge the adventurer in me. What was planned as 6months as a ski bumb, ended up leading me to Silver Star Ski Resort...",
+    "order": 2
+  },
+  {
+    "year": "2014-2020",
+    "title": "The restaurant eara",
+    "description": "What happens when a 25 year old aussie finds themselves on a working holiday at a Canadian ski hill? They take over one of the local restaurants, transform it, turn it around, and build an offshoot events and catering business... Obvious, right?   learning leadership, team management, and how to deliver under pressure.",
+    "order": 3
+  },
+  {
+    "year": "2017",
+    "title": "Super powers unlocked! Discovered Software Development",
+    "description": "Made the leap into code — self-taught at first, then formalised through study and hands-on projects.",
+    "order": 4
+  },
+  {
+    "year": "2022",
+    "title": "First Professional Dev Role",
+    "description": "Landed a developer position at a local start up and hit the ground running, shipping features and learning from experienced teams.",
+    "order": 5
+  },
+  {
+    "year": "2023",
+    "title": "Found my mojo",
+    "description": "Took on leadership responsibilities — mentoring developers, driving architecture decisions, and shaping team culture.",
+    "order": 6
+  },
+  {
+    "year": "2025",
+    "title": "Moved into a senior role",
+    "description": "Promoted into a senior team lead role after being key in a series of successful projects and Took on leadership responsibihitecture decisions, and shaping team culture.",
+    "order": 7
+  }
+]

@@ -8,7 +8,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faXmark, faDesktop } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
-import type { Project, Skill, ContactMethod } from "@/lib/types";
+import type { Project, Skill, ContactMethod, TimelineEntry } from "@/lib/types";
 
 import Splash from "@/components/splash/Splash";
 import Bio from "@/components/bio/Bio";
@@ -16,6 +16,7 @@ import Work from "@/components/work/Work";
 import Skills from "@/components/skills/Skills";
 import LowerCta from "@/components/ui/LowerCta";
 import Footer from "@/components/ui/Footer";
+import Timeline from "@/components/timeline/Timeline";
 import ContactFormModal from "@/components/modal/ContactFormModal";
 
 library.add(fab, faEnvelope, faXmark, faDesktop);
@@ -24,12 +25,14 @@ interface PageClientProps {
   projects: Project[];
   skills: Skill[];
   contactMethods: ContactMethod[];
+  timeline: TimelineEntry[];
 }
 
 export default function PageClient({
   projects,
   skills,
   contactMethods,
+  timeline,
 }: PageClientProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,7 +54,7 @@ export default function PageClient({
   };
 
   const handleFormChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -75,9 +78,13 @@ export default function PageClient({
 
   return (
     <div>
-      <Splash handleOpenModal={handleOpenModal} contactMethods={contactMethods} />
+      <Splash
+        handleOpenModal={handleOpenModal}
+        contactMethods={contactMethods}
+      />
       <Bio />
-      <Work projects={projects} />
+      <Timeline entries={timeline} />
+      {/* <Work projects={projects} /> */}
       <Skills skills={skills} />
       <LowerCta handleOpenModal={handleOpenModal} />
       <Footer contactMethods={contactMethods} />

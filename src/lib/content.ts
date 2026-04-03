@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import type { Project, Skill, ContactMethod, SiteMetadata } from "./types";
+import type { Project, Skill, ContactMethod, SiteMetadata, TimelineEntry } from "./types";
 
 const contentDir = path.join(process.cwd(), "src/content");
 
@@ -25,6 +25,12 @@ export function getContactMethods(): ContactMethod[] {
   );
   const methods: ContactMethod[] = JSON.parse(raw);
   return methods.sort((a, b) => a.order - b.order);
+}
+
+export function getTimeline(): TimelineEntry[] {
+  const raw = fs.readFileSync(path.join(contentDir, "timeline.json"), "utf-8");
+  const entries: TimelineEntry[] = JSON.parse(raw);
+  return entries.sort((a, b) => a.order - b.order);
 }
 
 export function getProjects(): Project[] {
