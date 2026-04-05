@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "portfolio_gatsby",
+  "project_id": "4457f692-3e45-4f1f-8688-0048855be21b"
+}
