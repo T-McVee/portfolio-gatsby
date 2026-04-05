@@ -30,6 +30,17 @@ export function getContactMethods(): ContactMethod[] {
 export function getTimeline(): TimelineEntry[] {
   const raw = fs.readFileSync(path.join(contentDir, "timeline.json"), "utf-8");
   const entries: TimelineEntry[] = JSON.parse(raw);
+
+  const asciiDir = path.join(contentDir, "ascii");
+  const asciiFiles = fs.existsSync(asciiDir) ? fs.readdirSync(asciiDir) : [];
+
+  for (const entry of entries) {
+    const match = asciiFiles.find((f) => f.startsWith(`${entry.order}-`));
+    if (match) {
+      entry.ascii = fs.readFileSync(path.join(asciiDir, match), "utf-8");
+    }
+  }
+
   return entries.sort((a, b) => a.order - b.order);
 }
 

@@ -32,11 +32,15 @@ export default function Timeline({ entries }: TimelineProps) {
       if (goingDown && current >= entries.length - 1) return;
       if (!goingDown && current <= 0) return;
 
+      // In the sticky zone and not at a boundary — always block scroll
       e.preventDefault();
+
+      // Require an intentional gesture before advancing
+      if (Math.abs(e.deltaY) < 40) return;
 
       if (cooldownRef.current) return;
       cooldownRef.current = true;
-      setTimeout(() => { cooldownRef.current = false; }, 600);
+      setTimeout(() => { cooldownRef.current = false; }, 800);
 
       const next = goingDown
         ? Math.min(current + 1, entries.length - 1)

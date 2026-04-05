@@ -30,6 +30,7 @@ export interface TimelineEntry {
   year: string;
   title: string;
   description: string;
+  ascii?: string;
   order: number;
 }
 
