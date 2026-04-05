@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import H1 from "@/components/ui/H1";
 import TimelineItem from "./TimelineItem";
+import AsciiArt from "./AsciiArt";
 import type { TimelineEntry } from "@/lib/types";
 
 interface TimelineProps {
@@ -24,11 +25,27 @@ export default function Timeline({ entries }: TimelineProps) {
       if (scrollableHeight <= 0) return;
 
       const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-      const index = Math.min(
-        Math.floor(progress * entries.length),
-        entries.length - 1,
-      );
-      setActiveIndex(index);
+      const segmentSize = 1 / entries.length;
+      const hysteresis = segmentSize * 0.15;
+
+      setActiveIndex((prev) => {
+        const naturalIndex = Math.min(
+          Math.floor(progress * entries.length),
+          entries.length - 1,
+        );
+
+        // Large jumps (e.g. scrollbar drag): follow natural mapping immediately
+        if (Math.abs(naturalIndex - prev) > 1) return naturalIndex;
+
+        // Adjacent changes: require deliberate scroll past threshold
+        if (prev < entries.length - 1 && progress > (prev + 1) * segmentSize + hysteresis) {
+          return prev + 1;
+        }
+        if (prev > 0 && progress < prev * segmentSize - hysteresis) {
+          return prev - 1;
+        }
+        return prev;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -85,6 +102,11 @@ export default function Timeline({ entries }: TimelineProps) {
                 <p className="text-xl mt-2 text-dark-grey">
                   {entry.description}
                 </p>
+                {entry.ascii && (
+                  <div className="mt-8">
+                    <AsciiArt art={entry.ascii} active={i === activeIndex} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
