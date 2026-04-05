@@ -13,44 +13,41 @@ interface TimelineProps {
 export default function Timeline({ entries }: TimelineProps) {
   const outerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
+  const cooldownRef = useRef(false);
 
   useEffect(() => {
     const outer = outerRef.current;
     if (!outer) return;
 
-    const handleScroll = () => {
+    const handleWheel = (e: WheelEvent) => {
       const rect = outer.getBoundingClientRect();
-      const scrollableHeight = outer.offsetHeight - window.innerHeight;
+      // Only intercept while the outer container spans the viewport (section is sticky)
+      if (rect.top > 0 || rect.bottom < window.innerHeight) return;
 
-      if (scrollableHeight <= 0) return;
+      const goingDown = e.deltaY > 0;
+      const current = activeIndexRef.current;
 
-      const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-      const segmentSize = 1 / entries.length;
-      const hysteresis = segmentSize * 0.15;
+      // At boundaries, let scroll pass through naturally
+      if (goingDown && current >= entries.length - 1) return;
+      if (!goingDown && current <= 0) return;
 
-      setActiveIndex((prev) => {
-        const naturalIndex = Math.min(
-          Math.floor(progress * entries.length),
-          entries.length - 1,
-        );
+      e.preventDefault();
 
-        // Large jumps (e.g. scrollbar drag): follow natural mapping immediately
-        if (Math.abs(naturalIndex - prev) > 1) return naturalIndex;
+      if (cooldownRef.current) return;
+      cooldownRef.current = true;
+      setTimeout(() => { cooldownRef.current = false; }, 600);
 
-        // Adjacent changes: require deliberate scroll past threshold
-        if (prev < entries.length - 1 && progress > (prev + 1) * segmentSize + hysteresis) {
-          return prev + 1;
-        }
-        if (prev > 0 && progress < prev * segmentSize - hysteresis) {
-          return prev - 1;
-        }
-        return prev;
-      });
+      const next = goingDown
+        ? Math.min(current + 1, entries.length - 1)
+        : Math.max(current - 1, 0);
+
+      activeIndexRef.current = next;
+      setActiveIndex(next);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
   }, [entries.length]);
 
   if (!entries.length) return null;
