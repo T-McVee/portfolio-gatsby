@@ -100,9 +100,23 @@ export default function Timeline({ entries }: TimelineProps) {
                   <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
                   {entry.title}
                 </h3>
-                <p className="text-xl mt-2 text-dark-grey">
-                  {entry.description}
-                </p>
+                <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
+                  {entry.description.split(/\n\n/).map((para, k) => (
+                    <p key={k}>
+                      {para.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
+                        const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                        if (match) {
+                          return (
+                            <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
+                              {match[1]}
+                            </a>
+                          );
+                        }
+                        return part;
+                      })}
+                    </p>
+                  ))}
+                </div>
                 {entry.ascii && (
                   <div className="mt-8">
                     <AsciiArt art={entry.ascii} active={i === activeIndex} />

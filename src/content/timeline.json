@@ -2,25 +2,25 @@
   {
     "year": "2006-2012",
     "title": "It all started with Audio Engineering",
-    "description": "Began career in audio production, learning to leverage technology to bring creative visions to life. Understanding singnal flow became the framework that later helped me when moving into software development and system design",
+    "description": "Long before I cared about DOM trees or API endpoints, my career started in the music industry. I spent six years as an audio engineer, which is essentially system architecture with much louder feedback loops. While other engineers were deep in music theory, I was the gearhead of the studio—obsessing over signal flow, mastering ProTools, and figuring out how to string together pre-amps, EQs and compressors to bring the artist's vision to life. It was a masterclass in taking a highly abstract, emotional requirement (like make a snare drum sound \"more purple\") and translating it into a concrete technical setup.",
     "order": 1
   },
   {
     "year": "2013",
     "title": "The mountains are calling",
-    "description": "Ventured to British Columbia, Canada to induluge the adventurer in me. What was planned as 6months as a ski bumb, ended up leading me to Silver Star Ski Resort...",
+    "description": "What started as a six-month working-holiday in British Columbia, Canada, quickly turned into a much longer pivot. Chasing the abundance of BC's snowboarding, biking, and climbing eventually led me to SilverStar Ski Resort, setting the stage for the next chapter.",
     "order": 2
   },
   {
     "year": "2014-2020",
     "title": "The restaurant eara",
-    "description": "What happens when a 25 year old aussie finds themselves on a working holiday at a Canadian ski hill? They take over one of the local restaurants, transform it, turn it around, and build an offshoot events and catering business... Obvious, right?   learning leadership, team management, and how to deliver under pressure.",
+    "description": "What happens when a mid-twenties Aussie finds himself on a working holiday at a Canadian ski hill? He takes over a struggling local restaurant, completely turns it around, and builds an offshoot events and catering business. Obvious, right? [1609](https://www.instagram.com/1609ssm/) was an eight-year masterclass in leadership, team management, and delivering under extreme pressure.\n\n I inherited a dated venue with a poor reputation and completely overhauled it—renovating the physical space, upgrading the menu, and driving community engagement with comedy nights, hot wing comps and partnering with local vinyards and cideries to host longtable dinners.\n\n To survive the sheer operational chaos, I leaned heavily into tech, deploying OCR for automated bookkeeping and setting up a state-of-the-art POS with Kitchen Display System to aid our line cooks and automate inventory control. We even launched an off-site wedding catering business to utilize our excess kitchen capacity during the ski off-season, which doubled as a testing ground for new recipes before they hit the main menu. I couldn't write code yet, but I was absolutely building systems.",
     "order": 3
   },
   {
     "year": "2017",
     "title": "Super powers unlocked! Discovered Software Development",
-    "description": "Made the leap into code — self-taught at first, then formalised through study and hands-on projects.",
+    "description": "Made the leap into code — self-taught at first, then formalised through study and hands-on projects. became obsessed, dedicated hours each day to learning.",
     "order": 4
   },
   {
