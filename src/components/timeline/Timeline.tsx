@@ -86,44 +86,70 @@ export default function Timeline({ entries }: TimelineProps) {
 
           {/* Right: content cards stacked in the same position */}
           <div className="relative flex-1 min-h-[120px]">
-            {entries.map((entry, i) => (
-              <div
-                key={entry.order}
-                className={[
-                  "absolute top-0 left-0 w-3/4 transition-all duration-500",
-                  i === activeIndex
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4 pointer-events-none",
-                ].join(" ")}
-              >
-                <h3 className="text-[1.5rem] font-bold max-tablet:text-[1.25rem]">
-                  <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
-                  {entry.title}
-                </h3>
-                <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
-                  {entry.description.split(/\n\n/).map((para, k) => (
-                    <p key={k}>
-                      {para.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
-                        const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
-                        if (match) {
-                          return (
-                            <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
-                              {match[1]}
-                            </a>
-                          );
-                        }
-                        return part;
-                      })}
-                    </p>
-                  ))}
+            {entries.map((entry, i) => {
+              const isActive = i === activeIndex;
+              const description = entry.description.split(/\n\n/).map((para, k) => (
+                <p key={k}>
+                  {para.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
+                    const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                    if (match) {
+                      return (
+                        <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
+                          {match[1]}
+                        </a>
+                      );
+                    }
+                    return part;
+                  })}
+                </p>
+              ));
+
+              return (
+                <div
+                  key={entry.order}
+                  className={[
+                    "absolute top-0 left-0 transition-all duration-500",
+                    entry.surrounding ? "w-full" : "w-3/4",
+                    isActive
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4 pointer-events-none",
+                  ].join(" ")}
+                >
+                  {entry.surrounding && entry.ascii ? (
+                    <>
+                      <div className="float-right ml-8 mb-4 max-tablet:hidden">
+                        <AsciiArt art={entry.ascii} active={isActive} fontSize="0.6rem" />
+                      </div>
+                      <h3 className="text-[1.5rem] font-bold max-tablet:text-[1.25rem]">
+                        <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
+                        {entry.title}
+                      </h3>
+                      <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
+                        {description}
+                      </div>
+                      <div className="clear-both mt-6 max-tablet:hidden">
+                        <AsciiArt art={entry.ascii} active={isActive} fontSize="0.6rem" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="text-[1.5rem] font-bold max-tablet:text-[1.25rem]">
+                        <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
+                        {entry.title}
+                      </h3>
+                      <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
+                        {description}
+                      </div>
+                      {entry.ascii && (
+                        <div className="mt-8">
+                          <AsciiArt art={entry.ascii} active={isActive} />
+                        </div>
+                      )}
+                    </>
+                  )}
                 </div>
-                {entry.ascii && (
-                  <div className="mt-8">
-                    <AsciiArt art={entry.ascii} active={i === activeIndex} />
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

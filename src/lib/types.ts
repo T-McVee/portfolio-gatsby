@@ -32,6 +32,7 @@ export interface TimelineEntry {
   description: string;
   ascii?: string;
   order: number;
+  surrounding?: boolean;
 }
 
 export interface SiteMetadata {

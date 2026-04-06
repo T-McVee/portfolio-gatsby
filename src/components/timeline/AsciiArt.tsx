@@ -5,6 +5,7 @@ import { useMemo } from "react";
 interface AsciiArtProps {
   art: string;
   active: boolean;
+  fontSize?: string;
 }
 
 interface CharData {
@@ -16,7 +17,7 @@ interface CharData {
   delay: number;
 }
 
-export default function AsciiArt({ art, active }: AsciiArtProps) {
+export default function AsciiArt({ art, active, fontSize = "0.75rem" }: AsciiArtProps) {
   const chars: CharData[] = useMemo(() => {
     const lines = art.split("\n");
     const result: CharData[] = [];
@@ -47,11 +48,12 @@ export default function AsciiArt({ art, active }: AsciiArtProps) {
 
   return (
     <div
-      className="font-mono text-black text-[0.75rem] leading-[1.2] max-tablet:hidden"
+      className="font-mono text-black leading-[1.2] max-tablet:hidden"
       style={{
         position: "relative",
         width: `${maxCols}ch`,
         height: `${lines.length * 1.2}em`,
+        fontSize,
       }}
     >
       {chars.map((c, i) => (

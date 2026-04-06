@@ -15,7 +15,8 @@
     "year": "2014-2020",
     "title": "The restaurant eara",
     "description": "What happens when a mid-twenties Aussie on a Canadian working holiday takes over a struggling ski-hill restaurant? He turns it around and builds an offshoot catering business. Obvious, right? [1609](https://www.instagram.com/1609ssm/) was an eight-year masterclass in leadership and delivering under extreme pressure. I inherited a dated venue with a poor reputation and completely overhauled it—renovating the space, upgrading the menu, and driving community engagement with comedy nights, wing comps, and vineyard longtable dinners.\n\n To survive the operational chaos, I leaned into tech— Deploying OCR for automated data entry, setting up a state-of-the-art POS and Kitchen Display System to aid inventory control and and speed up our line cooks. We even launched an off-site catering business to absorb excess kitchen capacity during the off-season, using it to test new recipes before they hit the main menu. I couldn't write code yet, but I was building systems and understanding how to apply tech to business problems.",
-    "order": 3
+    "order": 3,
+    "surrounding": true
   },
   {
     "year": "2017",
