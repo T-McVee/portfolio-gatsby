@@ -64,7 +64,7 @@ export default function Splash({
       {/* Foreground mountain image - z-[1] */}
       <BgFront ref={bgFrontRef} />
       {/* Gradient overlay - z-[3] */}
-      <div className="absolute top-0 left-0 z-[3] w-full h-full bg-gradient-to-b from-[rgba(255,250,233,0.35)] to-[rgba(255,255,255,0.78)] opacity-[0.83] pointer-events-none" />
+      <div className="absolute top-0 left-0 z-[3] w-full h-full splash-overlay opacity-[0.83] pointer-events-none" />
       {/* Content - z-[5] */}
       <Logo />
       <header className="w-full h-[calc(100%-80px)]">

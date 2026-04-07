@@ -48,7 +48,7 @@ export default function AsciiArt({ art, active, fontSize = "0.75rem" }: AsciiArt
 
   return (
     <div
-      className="font-mono text-black leading-[1.2] max-tablet:hidden"
+      className="font-mono text-text leading-[1.2] max-tablet:hidden"
       style={{
         position: "relative",
         width: `${maxCols}ch`,

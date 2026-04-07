@@ -3,11 +3,13 @@
 @theme {
   --color-accent-1: #AA25FD;
   --color-accent-2: #DF4F2B;
-  --color-dark-grey: #606060;
-  --color-grey: #D6D6D6;
-  --color-light-grey: #EBEBEB;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-bg: #ffffff;
+  --color-surface: #D6D6D6;
+  --color-surface-alt: #EBEBEB;
+  --color-surface-dark: #606060;
+  --color-text: #000000;
+  --color-text-muted: #606060;
+  --color-border: #000000;
   --radius-small: 8px;
   --breakpoint-phone: 376px;
   --breakpoint-tablet: 768px;
@@ -15,19 +17,73 @@
   --breakpoint-xl: 1440px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111111;
+    --color-surface: #2a2a2a;
+    --color-surface-alt: #1d1d1d;
+    --color-surface-dark: #0d0d0d;
+    --color-text: #ebebeb;
+    --color-text-muted: #888888;
+    --color-border: #2e2e2e;
+  }
+}
+
 body {
   font-family: Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 .bold {
   font-weight: 600;
 }
 
-/* Dialog backdrop */
+/* Splash gradient overlay — dark mode gets a dark tint instead of warm white */
+.splash-overlay {
+  background: linear-gradient(to bottom, rgba(255, 250, 233, 0.35), rgba(255, 255, 255, 0.78));
+}
+
+@media (prefers-color-scheme: dark) {
+  .splash-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* Splash title text shadow on smaller screens */
+@media (max-width: 1304px) {
+  .splash-title {
+    text-shadow: 0 0 26px rgba(255, 255, 255, 0.7);
+  }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 1304px) {
+  .splash-title {
+    text-shadow: 0 0 26px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Dialog */
 dialog::backdrop {
   background-color: rgba(214, 214, 214, 0.37);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(1px);
+}
+
+@media (prefers-color-scheme: dark) {
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  dialog {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  hr {
+    border-color: var(--color-border);
+  }
 }
 
 dialog[open] {
