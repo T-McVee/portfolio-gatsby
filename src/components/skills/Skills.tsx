@@ -10,7 +10,7 @@ export default function Skills({ skills }: SkillsProps) {
   if (!skills) return null;
   return (
     <section
-      className="flex flex-col w-full py-48 px-[5.5rem] bg-surface-alt text-text max-tablet:p-16"
+      className="flex flex-col w-full py-48 px-[5.5rem] bg-light-grey text-black max-tablet:p-16"
       data-testid="skills"
     >
       <H1>Skills</H1>

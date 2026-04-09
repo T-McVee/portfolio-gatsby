@@ -14,7 +14,7 @@ const HeaderLower = forwardRef<HTMLDivElement, HeaderLowerProps>(
         className="relative z-[5] flex justify-end w-full h-56 pt-6"
       >
         <div className="flex w-64 flex-col items-end">
-          <h2 className="text-[2.5rem] font-normal uppercase text-right leading-[2.75rem] w-fit mb-3 text-text splash-title">
+          <h2 className="text-[2.5rem] font-normal uppercase text-right leading-[2.75rem] w-fit mb-3 text-black max-laptop:[text-shadow:0_0_26px_rgba(255,255,255,0.7)]">
             Software Dev{" "}
             <span className="bold">
               / <br />
@@ -30,7 +30,7 @@ const HeaderLower = forwardRef<HTMLDivElement, HeaderLowerProps>(
           contactMethods={contactMethods}
           wrapperClass="relative z-[5] flex flex-col items-start w-12 h-2/3 justify-around"
           iconClass="text-[2rem] mx-4"
-          linkClass="no-underline text-text transition-colors duration-200 hover:text-accent-1 hover:cursor-pointer"
+          linkClass="no-underline text-black transition-colors duration-200 hover:text-accent-1 hover:cursor-pointer"
         />
       </div>
     );

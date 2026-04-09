@@ -10,7 +10,7 @@ interface SkillProps {
 export default function Skill({ skill }: SkillProps) {
   return (
     <div
-      className="flex flex-col items-center justify-center w-48 bg-surface list-none rounded-small mr-4 mb-4 py-4 max-tablet:w-32 max-tablet:h-32 max-tablet:mb-8 max-[568px]:w-full max-[568px]:h-32 max-[568px]:p-0 max-[568px]:m-0"
+      className="flex flex-col items-center justify-center w-48 bg-grey list-none rounded-small mr-4 mb-4 py-4 max-tablet:w-32 max-tablet:h-32 max-tablet:mb-8 max-[568px]:w-full max-[568px]:h-32 max-[568px]:p-0 max-[568px]:m-0"
       data-testid="skill"
     >
       {skill.useFontAwesome ? (

@@ -124,7 +124,7 @@ export default function Timeline({ entries }: TimelineProps) {
                         <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
                         {entry.title}
                       </h3>
-                      <div className="text-xl mt-2 text-text-muted flex flex-col gap-3">
+                      <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
                         {description}
                       </div>
                       <div className="clear-both mt-6 max-tablet:hidden">
@@ -137,7 +137,7 @@ export default function Timeline({ entries }: TimelineProps) {
                         <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
                         {entry.title}
                       </h3>
-                      <div className="text-xl mt-2 text-text-muted flex flex-col gap-3">
+                      <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
                         {description}
                       </div>
                       {entry.ascii && (

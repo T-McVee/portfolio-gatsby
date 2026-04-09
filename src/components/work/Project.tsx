@@ -40,7 +40,7 @@ export default function Project({ project, rightAlign }: ProjectProps) {
     if (project.linkLive) window.open(project.linkLive);
   };
 
-  const coverClasses = `relative rounded-small overflow-hidden cursor-pointer transition-all duration-[0.4s] aspect-[16/10] shadow-[2px_2px_8px_var(--color-surface)] hover:shadow-[2px_2px_12px_var(--color-surface-alt)] hover:scale-[1.01]`;
+  const coverClasses = `relative rounded-small overflow-hidden cursor-pointer transition-all duration-[0.4s] aspect-[16/10] shadow-[2px_2px_8px_var(--color-grey)] hover:shadow-[2px_2px_12px_var(--color-light-grey)] hover:scale-[1.01]`;
 
   return (
     <article

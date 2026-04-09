@@ -8,7 +8,7 @@ export default function Tag({ text, rightAlign }: TagProps) {
   return (
     <li
       className={`
-        w-fit px-6 py-2 list-none text-[1.2rem] lowercase text-white bg-surface rounded-small
+        w-fit px-6 py-2 list-none text-[1.2rem] lowercase text-white bg-grey rounded-small
         mt-2 mr-2 transition-transform duration-200 hover:scale-[1.02] hover:cursor-default
         max-xl:text-[1rem] max-xl:px-5
         max-laptop:text-[1.2rem] max-laptop:px-6

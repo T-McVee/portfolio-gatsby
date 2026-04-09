@@ -10,11 +10,11 @@ export default function ButtonCta({ text, handleClick }: ButtonCtaProps) {
     <div
       onClick={handleClick}
       className="
-        inline-block px-4 py-2 border border-border rounded-small
-        text-[19px] text-text relative overflow-hidden z-[1]
+        inline-block px-4 py-2 border border-black rounded-small
+        text-[19px] text-black relative overflow-hidden z-[1]
         transition-all duration-200 ease-in cursor-pointer
         before:content-[''] before:absolute before:right-full before:top-0
-        before:w-[140%] before:h-[180%] before:bg-text/5 before:rounded-full
+        before:w-[140%] before:h-[180%] before:bg-black/5 before:rounded-full
         before:block before:transition-all before:duration-500 before:delay-100
         before:ease-[cubic-bezier(0.55,0,0.1,1)] before:z-[-1]
         before:translate-x-[-25%] before:scale-y-100 before:scale-x-125

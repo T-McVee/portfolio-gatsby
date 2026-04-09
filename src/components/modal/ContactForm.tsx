@@ -15,7 +15,7 @@ export default function ContactForm({
   handleFormSubmit,
 }: ContactFormProps) {
   const inputClasses =
-    "text-[1.2rem] border-0 border-b border-solid border-b-border bg-transparent focus:outline-none focus:border-b-accent-1";
+    "text-[1.2rem] border-0 border-b border-solid border-b-black bg-transparent focus:outline-none focus:border-b-accent-1";
 
   return (
     <>
@@ -81,7 +81,7 @@ export default function ContactForm({
             placeholder="Your message..."
             onChange={handleFormChange}
             required
-            className="text-[1.2rem] h-32 font-[Helvetica,Arial,sans-serif] border-0 rounded-small bg-surface-alt p-2 resize-none focus:outline focus:outline-1 focus:outline-accent-1"
+            className="text-[1.2rem] h-32 font-[Helvetica,Arial,sans-serif] border-0 rounded-small bg-light-grey p-2 resize-none focus:outline focus:outline-1 focus:outline-accent-1"
           />
         </div>
         <div className="flex flex-col">

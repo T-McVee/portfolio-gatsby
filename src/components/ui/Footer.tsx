@@ -7,7 +7,7 @@ interface FooterProps {
 
 export default function Footer({ contactMethods }: FooterProps) {
   return (
-    <footer className="flex flex-col items-center justify-center w-full text-white bg-surface-dark px-[5.5rem] pt-12 pb-8">
+    <footer className="flex flex-col items-center justify-center w-full text-white bg-dark-grey px-[5.5rem] pt-12 pb-8">
       <SocialIcons
         contactMethods={contactMethods}
         wrapperClass="text-center"
