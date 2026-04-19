@@ -13,6 +13,17 @@ interface TimelineProps {
 // Height of the gradient fade zone (px). Tune to taste.
 const FADE_PX = 80;
 
+// Keep in sync with `--breakpoint-tablet` / `--breakpoint-laptop` in globals.css
+const VIEWPORT_MAX_TABLET = 768;
+const VIEWPORT_MAX_LAPTOP = 1304;
+
+/** How far the entry block top may sit above the viewport before ascii leave. */
+function assembleEntryTopLeewayPx(viewportWidth: number): number {
+  if (viewportWidth <= VIEWPORT_MAX_TABLET) return 88;
+  if (viewportWidth <= VIEWPORT_MAX_LAPTOP) return 120;
+  return 168;
+}
+
 export default function TimelineExperiment({ entries }: TimelineProps) {
   // Progress bar — advances as entries are reached; never driven to null.
   const [activeIndex, setActiveIndex] = useState(0);
@@ -53,8 +64,14 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         const vh = window.innerHeight;
+        const vw = window.innerWidth;
+        const topLeewayPx = assembleEntryTopLeewayPx(vw);
+        const useViewportIntersection = vw <= VIEWPORT_MAX_TABLET;
+
         let nextAssemble: number | null = null;
         let lowestPos = Infinity;
+        let bestIntersectTop = -Infinity;
+        let bestIntersectIndex = -1;
         let lastPast = -1; // highest index whose entry top has cleared the viewport
 
         entryRefs.current.forEach((el, i) => {
@@ -63,19 +80,34 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
           // rect.top < 0  →  entry has scrolled above the viewport
           if (rect.top < 0) lastPast = i;
 
-          // Content starts at headingHeight below the entry's top edge.
-          // It is in the "visible zone" (fully clear of the gradient) when:
-          //   rect.top >= 0              →  content hasn't entered the fade zone yet
-          //   rect.top + headingHeight   →  content's viewport position
-          //   < vh                       →  content is above the viewport bottom
-          const contentTop = rect.top + headingHeight;
-          if (rect.top >= 0 && contentTop < vh) {
-            if (contentTop < lowestPos) {
-              lowestPos = contentTop;
-              nextAssemble = i;
+          if (useViewportIntersection) {
+            // Mobile / narrow: `headingHeight` is measured from a desktop-only node
+            // and is often 0, so the content-line heuristic is wrong. Tall entries
+            // still intersect the viewport while ascii at the bottom is on-screen.
+            // Pick the foremost intersecting block (max rect.top) when two overlap.
+            if (rect.bottom > 0 && rect.top < vh) {
+              if (rect.top > bestIntersectTop) {
+                bestIntersectTop = rect.top;
+                bestIntersectIndex = i;
+              }
+            }
+          } else {
+            // Approximate “content line” for lower-edge check (see headingHeight).
+            // Upper edge uses leeway so leave does not fire the instant the outer
+            // block’s top crosses y=0 while copy/ascii are still on-screen.
+            const contentTop = rect.top + headingHeight;
+            if (rect.top >= -topLeewayPx && contentTop < vh) {
+              if (contentTop < lowestPos) {
+                lowestPos = contentTop;
+                nextAssemble = i;
+              }
             }
           }
         });
+
+        if (useViewportIntersection && bestIntersectIndex >= 0) {
+          nextAssemble = bestIntersectIndex;
+        }
 
         // assembleIndex drives AsciiArt.
         // Only update once the section has been reached (lastPast >= 0 means at
@@ -272,6 +304,13 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
                     <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
                       {description}
                     </div>
+                    <div className="mt-6 hidden max-tablet:flex max-tablet:w-full max-tablet:justify-start max-tablet:overflow-x-auto">
+                      <AsciiArt
+                        art={entry.ascii}
+                        active={isActive}
+                        fontSize="0.55rem"
+                      />
+                    </div>
                     <div className="clear-both mt-6 max-tablet:hidden">
                       <AsciiArt
                         art={entry.ascii}
@@ -290,7 +329,7 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
                       {description}
                     </div>
                     {entry.ascii && (
-                      <div className="mt-8">
+                      <div className="mt-8 w-full overflow-x-auto max-tablet:flex max-tablet:justify-start">
                         <AsciiArt art={entry.ascii} active={isActive} />
                       </div>
                     )}
