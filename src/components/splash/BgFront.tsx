@@ -12,8 +12,8 @@ const BgFront = forwardRef<HTMLDivElement>(function BgFront(_props, ref) {
         className="object-cover z-[1]"
       />
       <div
-        className="absolute -bottom-32 left-0 w-full h-32 bg-white z-[2]"
-        data-testid="white"
+        className="absolute -bottom-32 left-0 z-[2] h-32 w-full bg-[rgb(255,248,242)]"
+        aria-hidden="true"
       />
     </div>
   );

@@ -1,21 +1,6 @@
 "use client";
 
-import { useMemo, useSyncExternalStore } from "react";
-
-// Match `--breakpoint-tablet` / `max-tablet` (globals.css)
-const VIEWPORT_MAX_TABLET = 768;
-
-function useMaxTablet(): boolean {
-  return useSyncExternalStore(
-    (onStoreChange) => {
-      const mq = window.matchMedia(`(max-width: ${VIEWPORT_MAX_TABLET}px)`);
-      mq.addEventListener("change", onStoreChange);
-      return () => mq.removeEventListener("change", onStoreChange);
-    },
-    () => window.matchMedia(`(max-width: ${VIEWPORT_MAX_TABLET}px)`).matches,
-    () => false,
-  );
-}
+import { useMemo } from "react";
 
 interface AsciiArtProps {
   art: string;
@@ -37,8 +22,6 @@ interface CharData {
 const SCATTER_PAD_PX = 100;
 
 export default function AsciiArt({ art, active, fontSize = "0.75rem" }: AsciiArtProps) {
-  const staticOnNarrow = useMaxTablet();
-
   const chars: CharData[] = useMemo(() => {
     const lines = art.split("\n");
     const result: CharData[] = [];
@@ -70,21 +53,17 @@ export default function AsciiArt({ art, active, fontSize = "0.75rem" }: AsciiArt
   const innerHeight = `${lines.length * 1.2}em`;
   const pad = SCATTER_PAD_PX * 2;
 
-  const outerSize = staticOnNarrow
-    ? { width: innerWidth, height: innerHeight }
-    : {
-        width: `calc(${innerWidth} + ${pad}px)`,
-        height: `calc(${innerHeight} + ${pad}px)`,
-      };
+  const outerSize = {
+    width: `calc(${innerWidth} + ${pad}px)`,
+    height: `calc(${innerHeight} + ${pad}px)`,
+  };
 
   const innerStyle: React.CSSProperties = {
     position: "relative",
     width: innerWidth,
     height: innerHeight,
     fontSize,
-    ...(staticOnNarrow
-      ? {}
-      : { transform: `translate(${SCATTER_PAD_PX}px, ${SCATTER_PAD_PX}px)` }),
+    transform: `translate(${SCATTER_PAD_PX}px, ${SCATTER_PAD_PX}px)`,
   };
 
   return (
@@ -96,27 +75,17 @@ export default function AsciiArt({ art, active, fontSize = "0.75rem" }: AsciiArt
         {chars.map((c, i) => (
           <span
             key={i}
-            className={
-              staticOnNarrow ? "absolute" : "absolute transition-all ease-out"
-            }
-            style={
-              staticOnNarrow
-                ? {
-                    left: `${c.col}ch`,
-                    top: `${c.row * 1.2}em`,
-                    opacity: 1,
-                  }
-                : {
-                    left: `${c.col}ch`,
-                    top: `${c.row * 1.2}em`,
-                    transform: active
-                      ? "translate(0, 0)"
-                      : `translate(${c.offsetX}px, ${c.offsetY}px)`,
-                    opacity: active ? 1 : 0,
-                    transitionDuration: "800ms",
-                    transitionDelay: active ? `${c.delay}ms` : "0ms",
-                  }
-            }
+            className="absolute transition-all ease-out"
+            style={{
+              left: `${c.col}ch`,
+              top: `${c.row * 1.2}em`,
+              transform: active
+                ? "translate(0, 0)"
+                : `translate(${c.offsetX}px, ${c.offsetY}px)`,
+              opacity: active ? 1 : 0,
+              transitionDuration: "800ms",
+              transitionDelay: active ? `${c.delay}ms` : "0ms",
+            }}
           >
             {c.char}
           </span>

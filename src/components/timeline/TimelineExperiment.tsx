@@ -134,6 +134,8 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
 
   if (!entries.length) return null;
 
+  console.log("entries", entries);
+
   const renderInline = (text: string) =>
     text.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
       const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
@@ -216,7 +218,7 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
 
   return (
     <div
-      className="px-[5.5rem] max-tablet:px-8"
+      className="bg-white px-[5.5rem] max-tablet:px-8"
       // headingHeight already includes the FADE_PX gradient (it's inside the
       // heading ref div), so --timeline-pt == headingHeight is all entries need.
       style={{ "--timeline-pt": `${headingHeight}px` } as React.CSSProperties}
@@ -236,7 +238,11 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
         ref={headingRef}
         className="max-tablet:hidden sticky top-0 z-20 bg-white pt-16"
       >
-        <H1>Work.Work.Work.</H1>
+        <H1>
+          <span className="inline-block">Work.</span>
+          <span className="inline-block">Work.</span>
+          <span className="inline-block">Work.</span>
+        </H1>
         {/* <div */}
         {/*   className="pointer-events-none bg-gradient-to-b from-white to-transparent" */}
         {/*   style={{ height: FADE_PX }} */}
@@ -271,7 +277,11 @@ export default function TimelineExperiment({ entries }: TimelineProps) {
         <div className="flex-1 flex flex-col">
           {/* Mobile heading */}
           <div className="hidden max-tablet:block pt-8 pb-4">
-            <H1>Work.Work.Work.</H1>
+            <H1>
+              <span className="inline-block">Work.</span>
+              <span className="inline-block">Work.</span>
+              <span className="inline-block">Work.</span>
+            </H1>
           </div>
 
           {entries.map((entry, i) => {

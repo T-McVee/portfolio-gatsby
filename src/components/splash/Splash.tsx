@@ -52,7 +52,7 @@ export default function Splash({
   }, []);
 
   return (
-    <section className="relative w-full h-screen p-[5.5rem] max-tablet:p-8 overflow-hidden">
+    <section className="relative w-full h-[100dvh] min-h-[100dvh] p-[5.5rem] max-tablet:p-8 overflow-hidden">
       {/* Background image - z-0 */}
       <Image
         src="/images/bg-splash-back.jpg"

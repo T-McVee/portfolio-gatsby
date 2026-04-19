@@ -17,6 +17,8 @@
 
 body {
   font-family: Helvetica, sans-serif;
+  /* Matches hero→bio wash so subpixel seams never flash pure white while scrolling */
+  background-color: rgb(255, 248, 242);
 }
 
 .bold {

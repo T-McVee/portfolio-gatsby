@@ -1,5 +1,4 @@
 import H1 from "@/components/ui/H1";
-import XpBlock from "./XpBlock";
 
 export default function Bio() {
   return (
