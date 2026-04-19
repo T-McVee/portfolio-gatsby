@@ -4,8 +4,16 @@ import XpBlock from "./XpBlock";
 export default function Bio() {
   return (
     <section className="w-full py-48 px-[5.5rem] max-tablet:px-8">
-      <H1>
-        Builder of things. Sometimes restaurants. <br /> Mostly software.
+      <H1 className="max-tablet:!break-normal">
+        <span className="whitespace-nowrap max-phone:whitespace-normal">
+          Builder of things.
+        </span>{" "}
+        <span className="max-phone:whitespace-normal">
+          Sometimes restaurants.
+        </span>{" "}
+        <span className="whitespace-nowrap max-phone:whitespace-normal">
+          <br /> Mostly software.
+        </span>
       </H1>
       <div className="max-w-[1504px] w-[calc(90%-5.5rem)] max-phone:w-full flex flex-col gap-6">
         <p className="text-xl">
