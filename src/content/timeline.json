@@ -21,19 +21,13 @@
   {
     "year": "2017",
     "title": "Super powers unlocked! Discovered Software Development",
-    "description": "During the final years of the restaurant, a new hobby emmerged: learning to code. Wanting to \"learn HTML\" to build a landing page was the gateway. From there on, I was spending hours a day working through tutorials and building small apps. Once the restaurant wrapped up in 2021 (thank you, COVID) I started cutting my teeth as a dev part-time.\n\n The real \"aha\" moments happened while working with a restaurant equipment company. I built an ROI calculator that helped convey the value of their products. This was then followed up by an app that tightened up the accuracy of their online order shipping quotes. Then finally, a physical retro arcade machine running a sandwich-themed Space Invaders game to spice up their tradeshow booth. The hospitality era was over. I'd arrived.",
+    "description": "During the final years of the restaurant, a new hobby emmerged: learning to code. Wanting to \"learn HTML\" to build a landing page for a product launch was the gateway. From there on, I was spending hours a day working through tutorials and building small apps. Once the restaurant wrapped up in 2020 (thank you, COVID), the relentless work ethic I'd honed as a restaurateur was refocused on becoming great at software development. I soon after started cutting my teeth as a dev.\n\n The real \"aha\" moments happened while working with a restaurant equipment company. I built an ROI calculator that helped convey the value of their products. This was then followed up by an app that tightened up the accuracy of their online order shipping quotes. Then finally, a physical retro arcade machine running a sandwich-themed Space Invaders game to spice up their tradeshow booth. The hospitality era was over. I'd arrived.",
     "order": 4
   },
   {
     "year": "2023",
     "title": "Found my mojo",
-    "description": "Took on leadership responsibilities — mentoring developers, driving architecture decisions, and shaping team culture.",
+    "description": "Landed at Mojo Soup and went straight into building for major Queensland Government departments. The first six months were dizzying, in the best way. large codebases, high‑calibre teammates and enterprise‑grade complexities.\n\nWhat's my role look like now? \n- Senior Developer helping steer strategy and technical direction on key projects. \n- Frontend specialist building TypeScript + React apps on Azure\n- A go-to dev when PMs need to G.S.D., thanks to reliable execution and communication.\n- Mentor, helping our team, and myself grow. onboarding, rubber-ducking problems, raising the bar on craft and consistency.\n- leaning into AI, hard:\n  - Championed team-wide adoption, made the business cases, been key in rollout and upskilling.\n  - Helped drive the shift from autocomplete to agent‑led development with internal docs, blogs, and showcases.\n  - Co‑led the design and development of an AI‑powered PM tool that transforms AI notetaker outputs into Azure DevOps updates.\n\nAs of early 2026, current focus: exploring cloud agents and harness engineering to accelerate development and mmigration of legacy codebases.",
     "order": 5
-  },
-  {
-    "year": "2025",
-    "title": "Moved into a senior role",
-    "description": "Promoted into a senior team lead role after being key in a series of successful projects and Took on leadership responsibihitecture decisions, and shaping team culture.",
-    "order": 6
   }
 ]

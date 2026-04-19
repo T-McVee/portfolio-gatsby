@@ -61,7 +61,7 @@ export default function Timeline({ entries }: TimelineProps) {
 
   return (
     <div ref={outerRef} style={{ height: outerHeight }}>
-      <section className="sticky top-0 flex flex-col w-full px-[5.5rem] max-tablet:px-8 py-48 max-tablet:py-16 min-h-screen justify-center">
+      <section className="sticky top-0 flex flex-col w-full px-[5.5rem] max-tablet:px-8 pt-16 pb-8 max-tablet:pt-8 max-tablet:pb-8 min-h-screen justify-start">
         <H1>Work.Work.Work.</H1>
 
         <div className="flex gap-12 max-tablet:flex-col">
@@ -88,21 +88,67 @@ export default function Timeline({ entries }: TimelineProps) {
           <div className="relative flex-1 min-h-[120px]">
             {entries.map((entry, i) => {
               const isActive = i === activeIndex;
-              const description = entry.description.split(/\n\n/).map((para, k) => (
-                <p key={k}>
-                  {para.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
-                    const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
-                    if (match) {
-                      return (
-                        <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
-                          {match[1]}
-                        </a>
-                      );
+              const renderInline = (text: string) =>
+                text.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
+                  const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+                  if (match) {
+                    return (
+                      <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
+                        {match[1]}
+                      </a>
+                    );
+                  }
+                  return part;
+                });
+
+              const description = entry.description.split(/\n\n/).map((block, k) => {
+                const lines = block.split("\n");
+                const hasBullets = lines.some(l => /^- /.test(l) || /^  - /.test(l));
+
+                if (!hasBullets) {
+                  return <p key={k}>{renderInline(block)}</p>;
+                }
+
+                const parts: React.ReactNode[] = [];
+                let listItems: { text: string; nested: string[] }[] = [];
+
+                const flushList = () => {
+                  if (listItems.length === 0) return;
+                  parts.push(
+                    <ul key={`ul-${parts.length}`} className="list-disc pl-5 flex flex-col gap-1">
+                      {listItems.map((item, i) => (
+                        <li key={i}>
+                          {renderInline(item.text)}
+                          {item.nested.length > 0 && (
+                            <ul className="list-disc pl-5 flex flex-col gap-1 mt-1">
+                              {item.nested.map((n, j) => <li key={j}>{renderInline(n)}</li>)}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                  listItems = [];
+                };
+
+                for (const line of lines) {
+                  if (/^  - /.test(line)) {
+                    if (listItems.length > 0) {
+                      listItems[listItems.length - 1].nested.push(line.slice(4));
                     }
-                    return part;
-                  })}
-                </p>
-              ));
+                  } else if (/^- /.test(line)) {
+                    listItems.push({ text: line.slice(2), nested: [] });
+                  } else {
+                    flushList();
+                    if (line.trim()) {
+                      parts.push(<span key={`t-${parts.length}`}>{renderInline(line)}</span>);
+                    }
+                  }
+                }
+                flushList();
+
+                return <div key={k} className="flex flex-col gap-2">{parts}</div>;
+              });
 
               return (
                 <div
@@ -150,6 +196,26 @@ export default function Timeline({ entries }: TimelineProps) {
                 </div>
               );
             })}
+          </div>
+
+          {/* Scroll indicator — right of content, desktop only */}
+          <div
+            className={[
+              "max-tablet:hidden flex flex-col items-center justify-center gap-2 transition-opacity duration-500 self-center",
+              activeIndex < entries.length - 1 ? "opacity-100" : "opacity-0 pointer-events-none",
+            ].join(" ")}
+          >
+            <span className="text-dark-grey text-sm tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">scroll</span>
+            <svg
+              className="animate-bounce text-accent-1"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10 3v14M10 17l-5-5M10 17l5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
         </div>
       </section>

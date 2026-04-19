@@ -18,6 +18,7 @@ import LowerCta from "@/components/ui/LowerCta";
 import Footer from "@/components/ui/Footer";
 import Timeline from "@/components/timeline/Timeline";
 import ContactFormModal from "@/components/modal/ContactFormModal";
+import TimelineExperiment from "@/components/timeline/TimelineExperiment";
 
 library.add(fab, faEnvelope, faXmark, faDesktop);
 
@@ -83,9 +84,10 @@ export default function PageClient({
         contactMethods={contactMethods}
       />
       <Bio />
-      <Timeline entries={timeline} />
+      {/* <Timeline entries={timeline} /> */}
+      <TimelineExperiment entries={timeline} />
       {/* <Work projects={projects} /> */}
-      <Skills skills={skills} />
+      {/* <Skills skills={skills} /> */}
       <LowerCta handleOpenModal={handleOpenModal} />
       <Footer contactMethods={contactMethods} />
       <ContactFormModal
