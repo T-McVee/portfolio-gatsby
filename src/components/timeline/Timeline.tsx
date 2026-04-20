@@ -40,7 +40,9 @@ export default function Timeline({ entries }: TimelineProps) {
 
       if (cooldownRef.current) return;
       cooldownRef.current = true;
-      setTimeout(() => { cooldownRef.current = false; }, 800);
+      setTimeout(() => {
+        cooldownRef.current = false;
+      }, 800);
 
       const next = goingDown
         ? Math.min(current + 1, entries.length - 1)
@@ -93,7 +95,13 @@ export default function Timeline({ entries }: TimelineProps) {
                   const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
                   if (match) {
                     return (
-                      <a key={j} href={match[2]} target="_blank" rel="noopener noreferrer" className="text-accent-1 hover:underline">
+                      <a
+                        key={j}
+                        href={match[2]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent-1 hover:underline"
+                      >
                         {match[1]}
                       </a>
                     );
@@ -101,54 +109,73 @@ export default function Timeline({ entries }: TimelineProps) {
                   return part;
                 });
 
-              const description = entry.description.split(/\n\n/).map((block, k) => {
-                const lines = block.split("\n");
-                const hasBullets = lines.some(l => /^- /.test(l) || /^  - /.test(l));
-
-                if (!hasBullets) {
-                  return <p key={k}>{renderInline(block)}</p>;
-                }
-
-                const parts: React.ReactNode[] = [];
-                let listItems: { text: string; nested: string[] }[] = [];
-
-                const flushList = () => {
-                  if (listItems.length === 0) return;
-                  parts.push(
-                    <ul key={`ul-${parts.length}`} className="list-disc pl-5 flex flex-col gap-1">
-                      {listItems.map((item, i) => (
-                        <li key={i}>
-                          {renderInline(item.text)}
-                          {item.nested.length > 0 && (
-                            <ul className="list-disc pl-5 flex flex-col gap-1 mt-1">
-                              {item.nested.map((n, j) => <li key={j}>{renderInline(n)}</li>)}
-                            </ul>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+              const description = entry.description
+                .split(/\n\n/)
+                .map((block, k) => {
+                  const lines = block.split("\n");
+                  const hasBullets = lines.some(
+                    (l) => /^- /.test(l) || /^  - /.test(l),
                   );
-                  listItems = [];
-                };
 
-                for (const line of lines) {
-                  if (/^  - /.test(line)) {
-                    if (listItems.length > 0) {
-                      listItems[listItems.length - 1].nested.push(line.slice(4));
-                    }
-                  } else if (/^- /.test(line)) {
-                    listItems.push({ text: line.slice(2), nested: [] });
-                  } else {
-                    flushList();
-                    if (line.trim()) {
-                      parts.push(<span key={`t-${parts.length}`}>{renderInline(line)}</span>);
+                  if (!hasBullets) {
+                    return <p key={k}>{renderInline(block)}</p>;
+                  }
+
+                  const parts: React.ReactNode[] = [];
+                  let listItems: { text: string; nested: string[] }[] = [];
+
+                  const flushList = () => {
+                    if (listItems.length === 0) return;
+                    parts.push(
+                      <ul
+                        key={`ul-${parts.length}`}
+                        className="list-disc pl-5 flex flex-col gap-1"
+                      >
+                        {listItems.map((item, i) => (
+                          <li key={i}>
+                            {renderInline(item.text)}
+                            {item.nested.length > 0 && (
+                              <ul className="list-disc pl-5 flex flex-col gap-1 mt-1">
+                                {item.nested.map((n, j) => (
+                                  <li key={j}>{renderInline(n)}</li>
+                                ))}
+                              </ul>
+                            )}
+                          </li>
+                        ))}
+                      </ul>,
+                    );
+                    listItems = [];
+                  };
+
+                  for (const line of lines) {
+                    if (/^  - /.test(line)) {
+                      if (listItems.length > 0) {
+                        listItems[listItems.length - 1].nested.push(
+                          line.slice(4),
+                        );
+                      }
+                    } else if (/^- /.test(line)) {
+                      listItems.push({ text: line.slice(2), nested: [] });
+                    } else {
+                      flushList();
+                      if (line.trim()) {
+                        parts.push(
+                          <span key={`t-${parts.length}`}>
+                            {renderInline(line)}
+                          </span>,
+                        );
+                      }
                     }
                   }
-                }
-                flushList();
+                  flushList();
 
-                return <div key={k} className="flex flex-col gap-2">{parts}</div>;
-              });
+                  return (
+                    <div key={k} className="flex flex-col gap-2">
+                      {parts}
+                    </div>
+                  );
+                });
 
               return (
                 <div
@@ -164,30 +191,38 @@ export default function Timeline({ entries }: TimelineProps) {
                   {entry.surrounding && entry.ascii ? (
                     <>
                       <div className="float-right ml-8 mb-4 max-tablet:hidden">
-                        <AsciiArt art={entry.ascii} active={isActive} fontSize="0.6rem" />
+                        <AsciiArt
+                          art={entry.ascii}
+                          active={isActive}
+                          fontSize="0.6rem"
+                        />
                       </div>
                       <h3 className="text-[1.5rem] font-bold max-tablet:text-[1.25rem]">
-                        <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
-                        {entry.title}
+                        <span className="text-accent-1">{entry.year}</span>{" "}
+                        &mdash; {entry.title}
                       </h3>
                       <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
                         {description}
                       </div>
                       <div className="clear-both mt-6 max-tablet:hidden">
-                        <AsciiArt art={entry.ascii} active={isActive} fontSize="0.6rem" />
+                        <AsciiArt
+                          art={entry.ascii}
+                          active={isActive}
+                          fontSize="0.6rem"
+                        />
                       </div>
                     </>
                   ) : (
                     <>
                       <h3 className="text-[1.5rem] font-bold max-tablet:text-[1.25rem]">
-                        <span className="text-accent-1">{entry.year}</span> &mdash;{" "}
-                        {entry.title}
+                        <span className="text-accent-1">{entry.year}</span>{" "}
+                        &mdash; {entry.title}
                       </h3>
                       <div className="text-xl mt-2 text-dark-grey flex flex-col gap-3">
                         {description}
                       </div>
                       {entry.ascii && (
-                        <div className="mt-8">
+                        <div className="mt-8 max-tablet:-ml-[100px]">
                           <AsciiArt art={entry.ascii} active={isActive} />
                         </div>
                       )}
@@ -202,10 +237,14 @@ export default function Timeline({ entries }: TimelineProps) {
           <div
             className={[
               "max-tablet:hidden flex flex-col items-center justify-center gap-2 transition-opacity duration-500 self-center",
-              activeIndex < entries.length - 1 ? "opacity-100" : "opacity-0 pointer-events-none",
+              activeIndex < entries.length - 1
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none",
             ].join(" ")}
           >
-            <span className="text-dark-grey text-sm tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">scroll</span>
+            <span className="text-dark-grey text-sm tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">
+              scroll
+            </span>
             <svg
               className="animate-bounce text-accent-1"
               width="20"
@@ -214,7 +253,13 @@ export default function Timeline({ entries }: TimelineProps) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M10 3v14M10 17l-5-5M10 17l5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M10 3v14M10 17l-5-5M10 17l5-5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
         </div>
