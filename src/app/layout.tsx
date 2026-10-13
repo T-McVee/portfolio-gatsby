@@ -7,14 +7,22 @@ const meta = getSiteMetadata();
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
+  metadataBase: new URL("https://tmcvee.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
+    type: "website",
+    locale: "en_AU",
     url: meta.ogUrl,
+    siteName: "Tim McVinish",
     title: meta.ogTitle,
     description: meta.description,
-    images: [meta.ogImage],
   },
-  icons: {
-    icon: "/images/favicon.png",
+  twitter: {
+    card: "summary_large_image",
+    title: meta.ogTitle,
+    description: meta.description,
   },
 };
 
