@@ -31,5 +31,4 @@ export interface SiteMetadata {
   description: string;
   ogUrl: string;
   ogTitle: string;
-  ogImage: string;
 }

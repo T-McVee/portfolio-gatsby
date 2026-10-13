@@ -18,13 +18,11 @@ export const metadata: Metadata = {
     siteName: "Tim McVinish",
     title: meta.ogTitle,
     description: meta.description,
-    images: [meta.ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: meta.ogTitle,
     description: meta.description,
-    images: [meta.ogImage],
   },
 };
 
