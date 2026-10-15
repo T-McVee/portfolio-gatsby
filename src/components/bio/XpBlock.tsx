@@ -6,9 +6,9 @@ interface XpBlockProps {
 export default function XpBlock({ heading, number }: XpBlockProps) {
   return (
     <div className="mr-8 first:mb-8">
-      <h2 className="text-[1rem] font-light lowercase text-dark-grey mb-4">
+      <div className="text-[1rem] font-light lowercase text-dark-grey mb-4">
         {heading}:
-      </h2>
+      </div>
       <div className="flex flex-row">
         <div
           className="text-[6rem] font-medium text-accent-1 leading-[3.5rem] max-tablet:text-[4rem]"

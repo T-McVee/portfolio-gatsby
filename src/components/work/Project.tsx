@@ -70,6 +70,7 @@ export default function Project({ project, rightAlign }: ProjectProps) {
             src={project.cover}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1304px) 100vw, 58vw"
             className="object-cover"
           />
         </div>
@@ -92,6 +93,7 @@ export default function Project({ project, rightAlign }: ProjectProps) {
             src={project.cover}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1304px) 100vw, 58vw"
             className="object-cover"
           />
         </div>

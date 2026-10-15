@@ -13,7 +13,7 @@ export default function Bio() {
           href="https://www.instagram.com/1609ssm/"
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline text-accent-1"
+          className="text-accent-1 underline"
         >
           other story
         </a>

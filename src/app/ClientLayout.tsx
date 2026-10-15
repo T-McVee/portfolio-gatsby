@@ -1,15 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { library, config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faXmark, faDesktop } from "@fortawesome/free-solid-svg-icons";
-
-config.autoAddCss = false;
-import type { Project, Skill, ContactMethod } from "@/lib/types";
-
 import Splash from "@/components/splash/Splash";
 import Bio from "@/components/bio/Bio";
 import Work from "@/components/work/Work";
@@ -17,20 +8,19 @@ import Skills from "@/components/skills/Skills";
 import LowerCta from "@/components/ui/LowerCta";
 import Footer from "@/components/ui/Footer";
 import ContactFormModal from "@/components/modal/ContactFormModal";
+import type { Project, Skill, ContactMethod } from "@/lib/types";
 
-library.add(fab, faEnvelope, faXmark, faDesktop);
-
-interface PageClientProps {
+interface ClientLayoutProps {
   projects: Project[];
   skills: Skill[];
   contactMethods: ContactMethod[];
 }
 
-export default function PageClient({
+export default function ClientLayout({
   projects,
   skills,
   contactMethods,
-}: PageClientProps) {
+}: ClientLayoutProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formInfo, setFormInfo] = useState({
