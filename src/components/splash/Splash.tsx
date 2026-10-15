@@ -58,7 +58,7 @@ export default function Splash({
         src="/images/bg-splash-back.jpg"
         alt="Background"
         fill
-        priority
+        sizes="100vw"
         className="object-cover z-0"
       />
       {/* Foreground mountain image - z-[1] */}

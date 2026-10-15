@@ -8,7 +8,7 @@ const BgFront = forwardRef<HTMLDivElement>(function BgFront(_props, ref) {
         src="/images/bg-splash-front.webp"
         alt="Standing on top of a mountain"
         fill
-        priority
+        sizes="100vw"
         className="object-cover z-[1]"
       />
       <div

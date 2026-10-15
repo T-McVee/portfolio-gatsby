@@ -1,5 +1,7 @@
 import { getProjects, getSkills, getContactMethods } from "@/lib/content";
-import PageClient from "./PageClient";
+import ClientLayout from "./ClientLayout";
+
+export const dynamic = "force-static";
 
 export default function Home() {
   const projects = getProjects();
@@ -7,7 +9,7 @@ export default function Home() {
   const contactMethods = getContactMethods();
 
   return (
-    <PageClient
+    <ClientLayout
       projects={projects}
       skills={skills}
       contactMethods={contactMethods}
